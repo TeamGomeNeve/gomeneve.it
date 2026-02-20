@@ -144,7 +144,6 @@
             text-align: center;
             padding: 0 20px;
             background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)),
-
                 url('images/Worcester.jpg');
             background-size: cover;
             background-position: center;
@@ -234,6 +233,49 @@
             justify-content: center;
             color: var(--primary-yellow);
             box-shadow: 15px 15px 0px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .about-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* --- TEAM SECTION --- */
+        #team {
+            background-color: var(--dark-bg);
+            padding-bottom: 120px;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .team-member {
+            aspect-ratio: 1/1;
+            background-color: var(--card-bg);
+            border: 2px solid var(--primary-yellow);
+            transition: var(--transition);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .team-member:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px var(--yellow-glow);
+            z-index: 10;
+        }
+
+        .team-member img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         /* --- SFIDE (CARDS) --- */
@@ -295,6 +337,13 @@
             font-size: 0.85rem;
         }
 
+        /* Responsive Team */
+        @media screen and (max-width: 1024px) {
+            .team-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
         @media screen and (max-width: 768px) {
             .about-grid {
                 grid-template-columns: 1fr;
@@ -307,6 +356,10 @@
 
             .section-title {
                 font-size: 2rem;
+            }
+
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
     </style>
@@ -335,20 +388,9 @@
                     <div class="dropdown-content">
                         <a href="Progetto_tecnico.html">Progetto tecnico</a>
                     </div>
-
-
-
-
-
                 </li>
                 <li class="dropdown">
-                    <a href="javascript:void(0)">I nostri coach <span class="arrow-down">▼</span></a>
-                    <div class="dropdown-content">
-                        <a href="ex_Coach.html">Stelline nascenti</a>
-                    </div>
-
-
-
+                    <a href="ex_Coach.html">Stelline nascenti</a>
                 </li>
                 <li><a href="#contact">Contatti</a></li>
             </ul>
@@ -376,10 +418,11 @@
                 <a href="#contact" class="btn btn-inverse">Unisciti a noi</a>
             </div>
             <div class="about-img">
-                <span style="font-weight: 800; text-transform: uppercase; letter-spacing: 2px;">[ Foto Squadra ]</span>
+                <img src="images/FOTO GRUPPO 1.0.jpg" alt="Foto Squadra Gome Neve">
             </div>
         </div>
-        <section id="about">
+
+        <div style="margin-top: 80px;">
             <h2 class="section-title">First Lego League</h2>
             <div class="about-grid">
                 <div class="about-text">
@@ -390,28 +433,20 @@
                         tema specifico (assegnato ogni anno dalla FLL) e cercare una soluzione innovativa e originale
                         per risolverlo.</p>
                     <p>Il <strong>progetto tecnico</strong> riguarda la costruzione del robot, delle sue strutture e la
-                        sua programmazione per completare le missioni durante il <strong>Robot Game</strong>.
-                    <p></p>
+                        sua programmazione per completare le missioni durante il <strong>Robot Game</strong>.</p>
                     <p>Il <strong>Core Values</strong> invece, valuta l’unità e la collaborazione all’interno della
-                        squadra.
-                    <p>
-                        <br>
-                    </p>
-                    La competizione ha diverse fasi di selezione: Le prime gare sono le regionali; chi supera la sfida,
-                    guadagna l’accesso alla competizione nazionale.
-                    Le migliori squadre che riescono a passare anche questa fase, hanno la possibilità di partecipare ad
-                    alcuni eventi internazionali.
-                    Durante la stagione 2024/2025, la nostra squadra è riuscita a qualificarsi per un evento
-                    internazionale di robotica: il WPI Open Invitational a Worcester, Massachusetts dove abbiamo vissuto
-                    esperienze indimenticabili che ci hanno unito maggiormente.
-
+                        squadra.</p>
                     <br>
+                    <p>La competizione ha diverse fasi di selezione: Le prime gare sono le regionali; chi supera la
+                        sfida,
+                        guadagna l’accesso alla competizione nazionale.</p>
                 </div>
-                <div class="about-img">
-                    <span style="font-weight: 800; text-transform: uppercase; letter-spacing: 2px;">[ logo FLL o foto
-                        della competizione ]</span>
+                <div class="about-img" style="height: auto; background: transparent; box-shadow: none;">
+                    <img src="images/HOMER.jpeg" alt="Logo FLL"
+                        style="width: 100%; height: auto; object-fit: contain; background: #fff; box-shadow: 15px 15px 0px rgba(0, 0, 0, 0.1);">
                 </div>
-        </section>
+            </div>
+        </div>
     </section>
 
     <section id="challenges">
@@ -426,26 +461,20 @@
                 <h3>Unearthed</h3>
                 <p>2025 - 2026</p>
             </a>
-
             <a href="stagione_24_25.html" class="challenge-card">
                 <h3>Submerged</h3>
                 <p>2024 - 2025</p>
             </a>
-
             <a href="stagione_23_24.html" class="challenge-card">
                 <h3>Masterpiece</h3>
                 <p>2023 - 2024</p>
             </a>
-
             <a href="stagione_22_23.html" class="challenge-card">
                 <h3>Super Powered</h3>
                 <p>2022 - 2023</p>
-
             </a>
-
             <a href="Progetto_tecnico.html" class="challenge-card">
                 <h3>Robot</h3>
-
             </a>
         </div>
     </section>
