@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -93,8 +94,8 @@
             align-items: center;
             text-align: center;
             padding: 0 20px;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(16,16,16,1)), 
-                        url('c:\Users\robotica\Desktop\gomeneve.it\images\Immagine prova.jpg');
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(16, 16, 16, 1)),
+                url('c:/Users/robotica/Desktop/gomeneve.it/images/Immagine prova.jpg');
             background-size: cover;
             background-position: center;
             border-bottom: 2px solid var(--primary-yellow);
@@ -129,7 +130,8 @@
             width: 100%;
             height: 400px;
             background-color: #222;
-            border: 2px dashed var(--primary-yellow);
+            border: 2px solid var(--primary-yellow);
+            /* Cambiato da dashed a solid */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -138,9 +140,10 @@
         }
 
         .image-box img {
-            max-width: 100%;
-            max-height: 100%;
+            width: 100%;
+            height: 100%;
             object-fit: cover;
+            /* Mantiene le proporzioni riempiendo il box */
         }
 
         /* Stile Caselle di Testo */
@@ -168,19 +171,21 @@
             text-transform: uppercase;
             margin-top: 50px;
         }
-
     </style>
 </head>
+
 <body>
 
     <header>
         <a href="index.html" class="back-btn">← Indietro</a>
         <div class="logo">ROBOTICA 2026</div>
-        <div style="width: 80px;"></div> 
+        <div style="width: 80px;"></div>
     </header>
 
     <section class="hero">
-        <div style="background: var(--primary-yellow); color: black; padding: 5px 20px; font-weight: 900; margin-bottom: 20px;">PROGETTO TECNICO</div>
+        <div
+            style="background: var(--primary-yellow); color: black; padding: 5px 20px; font-weight: 900; margin-bottom: 20px;">
+            PROGETTO TECNICO</div>
         <h1>ROBOT</h1>
         <p style="letter-spacing: 3px; text-transform: uppercase;">Sviluppo Meccanico e Software</p>
     </section>
@@ -188,28 +193,31 @@
     <main>
         <section id="analisi">
             <h2 class="section-title">Specifiche Tecniche</h2>
-            
+
             <div class="image-box">
-                <span style="color: #666;">[ Inserire Immagine Render 3D del Robot ]</span>
-                </div>
+                <img src="C:\Users\robotica\Desktop\gomeneve.it\images\FOTO_1.5.JPG" alt="Render Robot Tecnico">
+            </div>
 
             <div class="text-container">
                 <h3>Descrizione Meccanica</h3>
                 <p>
-                    Il sistema robotico è progettato con una struttura modulare in alluminio e fibra di carbonio per massimizzare il rapporto forza-peso. 
+                    Il sistema robotico è progettato con una struttura modulare in alluminio e fibra di carbonio per
+                    massimizzare il rapporto forza-peso.
                     I giunti utilizzano servomotori ad alta coppia con feedback di posizione integrato.
                 </p>
             </div>
         </section>
 
-        <section id="componenti" style="background-color: #151515; width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw;">
-           <div style="max-width: 1200px; margin: 0 auto; padding: 0 10%;">
+        <section id="componenti"
+            style="background-color: #151515; width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw;">
+            <div style="max-width: 1200px; margin: 0 auto; padding: 0 10%;">
                 <h2 class="section-title">Sistemi di Controllo</h2>
-                
+
                 <div class="text-container">
                     <h3>Software e Intelligenza</h3>
                     <p>
-                        Il codice di controllo è basato su architettura ROS2. I sensori LiDAR e le camere di profondità permettono una mappatura 
+                        Il codice di controllo è basato su architettura ROS2. I sensori LiDAR e le camere di profondità
+                        permettono una mappatura
                         simultanea dell'ambiente (SLAM), garantendo un'autonomia completa in terreni irregolari.
                     </p>
                 </div>
@@ -217,7 +225,7 @@
                 <div class="image-box">
                     <span style="color: #666;">[ Inserire Diagramma Elettronico / Schema Sensori ]</span>
                 </div>
-           </div>
+            </div>
         </section>
     </main>
 
@@ -226,4 +234,5 @@
     </footer>
 
 </body>
+
 </html>
