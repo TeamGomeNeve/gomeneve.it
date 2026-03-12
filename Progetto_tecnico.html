@@ -45,6 +45,7 @@
             background-color: var(--dark-bg);
             color: var(--text-white);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
         /* --- HEADER --- */
@@ -110,11 +111,14 @@
             text-shadow: 3px 3px 0px #000;
         }
 
-        /* --- LAYOUT GRIGLIA --- */
+        /* --- LAYOUT --- */
+        main {
+            padding: 60px 5%;
+        }
+
         section {
-            padding: 60px 10%;
-            max-width: 1200px;
-            margin: 0 auto;
+            max-width: 1000px;
+            margin: 0 auto 60px auto;
         }
 
         .section-title {
@@ -125,33 +129,39 @@
             color: var(--primary-yellow);
         }
 
-        /* Stile Caselle Immagine */
+        /* Caselle Immagine */
         .image-box {
             width: 100%;
-            height: 400px;
+            max-width: 800px;
+            height: 450px;
             background-color: #222;
             border: 2px solid var(--primary-yellow);
-            /* Cambiato da dashed a solid */
+            margin: 0 auto 30px auto;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 30px;
             overflow: hidden;
+            cursor: pointer;
         }
 
         .image-box img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            /* Mantiene le proporzioni riempiendo il box */
+            transition: transform 0.3s ease;
         }
 
-        /* Stile Caselle di Testo */
+        .image-box img:hover {
+            transform: scale(1.02);
+        }
+
+        /* Caselle di Testo */
         .text-container {
             background-color: var(--card-bg);
             padding: 30px;
             border-left: 5px solid var(--primary-yellow);
-            margin-bottom: 40px;
+            margin: 0 auto 40px auto;
+            max-width: 800px;
             box-shadow: 10px 10px 0px rgba(255, 215, 0, 0.1);
         }
 
@@ -159,6 +169,35 @@
             color: var(--primary-yellow);
             margin-bottom: 15px;
             text-transform: uppercase;
+        }
+
+        /* Schede Robot Centrate */
+        .robot-container {
+            max-width: 800px;
+            margin: 0 auto 50px auto;
+            background-color: var(--card-bg);
+            padding: 20px;
+            border: 1px solid #333;
+            text-align: center;
+        }
+
+        .robot-img-wrapper {
+            width: 100%;
+            height: auto;
+            margin-top: 15px;
+            border: 1px solid var(--primary-yellow);
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .robot-img-wrapper img {
+            width: 100%;
+            display: block;
+            transition: opacity 0.3s;
+        }
+
+        .robot-img-wrapper img:hover {
+            opacity: 0.8;
         }
 
         /* --- FOOTER --- */
@@ -185,7 +224,8 @@
     <section class="hero">
         <div
             style="background: var(--primary-yellow); color: black; padding: 5px 20px; font-weight: 900; margin-bottom: 20px;">
-            PROGETTO TECNICO</div>
+            PROGETTO TECNICO
+        </div>
         <h1>ROBOT</h1>
         <p style="letter-spacing: 3px; text-transform: uppercase;">Sviluppo Meccanico e Software</p>
     </section>
@@ -194,7 +234,7 @@
         <section id="analisi">
             <h2 class="section-title">Specifiche Tecniche</h2>
 
-            <div class="image-box">
+            <div class="image-box" onclick="window.location.href=this.querySelector('img').src">
                 <img src="C:\Users\robotica\Desktop\gomeneve.it\images\FOTO_1.5.JPG" alt="Render Robot Tecnico">
             </div>
 
@@ -202,50 +242,51 @@
                 <h3>Descrizione Meccanica</h3>
                 <p>
                     Il sistema robotico è progettato con una struttura modulare in alluminio e fibra di carbonio per
-                    massimizzare il rapporto forza-peso.
-                    I giunti utilizzano servomotori ad alta coppia con feedback di posizione integrato.
+                    massimizzare il rapporto forza-peso. I giunti utilizzano servomotori ad alta coppia con feedback di
+                    posizione integrato.
                 </p>
             </div>
         </section>
 
-        <section id="componenti"
-            style="background-color: #151515; width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw;">
-            <div style="max-width: 1200px; margin: 0 auto; padding: 0 10%;">
-                <h2 class="section-title">Sistemi di Controllo</h2>
+        <section id="componenti">
+            <h2 class="section-title">Sistemi di Controllo</h2>
 
-                <div class="text-container">
-                    <h3>Software e Intelligenza</h3>
-                    <p>
-                        Il codice di controllo è basato su architettura ROS2. I sensori LiDAR e le camere di profondità
-                        permettono una mappatura
-                        simultanea dell'ambiente (SLAM), garantendo un'autonomia completa in terreni irregolari.
-                    </p>
-                </div>
-                <div class="robot-container">
-                    <h3 style="text-align: center; font-family: sans-serif;">ROBOT 2023/24</h3>
-                    <div style="width: 100%; height: auto;">
-                        <img src="images/Robot_masterpiece1.png" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                </div>
-                <div class="robot-container">
-                    <h3 style="text-align: center; font-family: sans-serif;">ROBOT 2024/25</h3>
-                    <div style="width: 100%; height: auto;">
-                        <img src="images/Robot_submerged.JPG" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                </div>
+            <div class="text-container">
+                <h3>Software e Intelligenza</h3>
+                <p>
+                    Il codice di controllo è basato su architettura ROS2. I sensori LiDAR e le camere di profondità
+                    permettono una mappatura simultanea dell'ambiente (SLAM), garantendo un'autonomia completa in
+                    terreni irregolari.
+                </p>
+            </div>
 
-                <br>
-                <div class="robot-container">
-                    <h3 style="text-align: center; font-family: sans-serif;">ROBOT 2025/26</h3>
-                    <div style="width: 100%; height: auto;">
-                        <img src="images/Robot_unearthed.png" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
+            <div class="robot-container">
+                <h3 style="margin-bottom: 10px; color: var(--primary-yellow);">ROBOT 2023/24</h3>
+                <div class="robot-img-wrapper" onclick="window.location.href=this.querySelector('img').src">
+                    <img src="images/Robot_masterpiece1.png" alt="Robot 23/24">
                 </div>
+            </div>
+
+            <div class="robot-container">
+                <h3 style="margin-bottom: 10px; color: var(--primary-yellow);">ROBOT 2024/25</h3>
+                <div class="robot-img-wrapper" onclick="window.location.href=this.querySelector('img').src">
+                    <img src="images/Robot_submerged.JPG" alt="Robot 24/25">
+                </div>
+            </div>
+
+            <div class="robot-container">
+                <h3 style="margin-bottom: 10px; color: var(--primary-yellow);">ROBOT 2025/26</h3>
+                <div class="robot-img-wrapper" onclick="window.location.href=this.querySelector('img').src">
+                    <img src="images/Robot_unearthed.png" alt="Robot 25/26">
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer>
         <p>&copy; 2026 - Documentazione Tecnica Robotica - Progetto Robot</p>
     </footer>
+
 </body>
 
 </html>
