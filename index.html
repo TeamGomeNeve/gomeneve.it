@@ -75,6 +75,15 @@
             text-shadow: 0 0 10px var(--yellow-glow);
         }
 
+        /* Hamburger Icon */
+        .hamburger {
+            display: none;
+            font-size: 2rem;
+            color: var(--primary-yellow);
+            cursor: pointer;
+            user-select: none;
+        }
+
         nav ul {
             display: flex;
             gap: 25px;
@@ -117,6 +126,7 @@
             padding: 12px 16px;
             border-bottom: 1px solid #333;
             font-size: 0.8rem;
+            display: block;
         }
 
         .dropdown-content a:hover {
@@ -143,8 +153,11 @@
             align-items: center;
             text-align: center;
             padding: 0 20px;
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)),
-                url('images/Worcester.jpg');
+            
+            padding-bottom: 55vh; /* Spinge il contenuto verso l'alto. Aumenta o diminuisci il numero (es. 15vh o 25vh) per regolarlo */
+            
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)),
+                url('images/Worcester.jpg'); /* foto home*/
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -337,7 +350,7 @@
             font-size: 0.85rem;
         }
 
-        /* Responsive Team */
+        /* --- MEDIA QUERIES (RESPONSIVE) --- */
         @media screen and (max-width: 1024px) {
             .team-grid {
                 grid-template-columns: repeat(4, 1fr);
@@ -345,6 +358,61 @@
         }
 
         @media screen and (max-width: 768px) {
+            /* Header & Nav */
+            header {
+                position: fixed; /* Torniamo a fixed ma gestiamo l'ingombro */
+                flex-wrap: wrap;
+                padding: 10px 5%;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            nav {
+                width: 100%;
+                display: none; /* Nascondiamo il menu di default */
+                background-color: rgba(16, 16, 16, 0.98);
+                margin-top: 10px;
+                max-height: 80vh;
+                overflow-y: auto;
+            }
+
+            nav.active {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 0;
+                padding: 20px 0;
+            }
+
+            nav ul li {
+                width: 100%;
+                text-align: center;
+            }
+
+            nav ul li a {
+                padding: 15px;
+                border-bottom: 1px solid #222;
+                font-size: 1rem;
+            }
+
+            /* Dropdown su mobile */
+            .dropdown-content {
+                position: static;
+                width: 100%;
+                box-shadow: none;
+                border: none;
+                background-color: #1a1a1a;
+            }
+
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
+
+            /* Altri elementi */
             .about-grid {
                 grid-template-columns: 1fr;
             }
@@ -361,6 +429,10 @@
             .team-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+
+            .hero {
+                background-attachment: scroll; /* Migliori prestazioni su mobile */
+            }
         }
     </style>
 </head>
@@ -369,9 +441,9 @@
 
     <header>
         <div class="logo">Gome Neve</div>
-        <nav>
+        <div class="hamburger" id="hamburger-btn">☰</div>
+        <nav id="nav-menu">
             <ul>
-                <li><a href="index.html">Home</a></li>
                 <li><a href="#about">Chi Siamo</a></li>
                 <li class="dropdown">
                     <a href="javascript:void(0)">Progetto scientifico <span class="arrow-down">▼</span></a>
@@ -390,7 +462,7 @@
                     </div>
                 </li>
                 <li class="dropdown">
-                    <a href="ex_Coach.html">Stelline nascenti</a>
+                    <a href="stelline_nascenti.html">Stelline nascenti</a>
                 </li>
                 <li><a href="#contact">Contatti</a></li>
             </ul>
@@ -489,6 +561,25 @@
         &copy; 2025 Gome Neve Robotics Team - Scuola Ladina.
     </footer>
 
-</body>
+    <script>
+        const hamburger = document.getElementById('hamburger-btn');
+        const nav = document.getElementById('nav-menu');
+        const navLinks = document.querySelectorAll('nav ul li a');
 
+        // Apre/Chiude il menu al click sull'hamburger
+        hamburger.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            hamburger.innerHTML = nav.classList.contains('active') ? '✕' : '☰';
+        });
+
+        // Chiude il menu quando si clicca su un link (utile per i link interni alla pagina)
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('active');
+                hamburger.innerHTML = '☰';
+            });
+        });
+    </script>
+
+</body>
 </html>
