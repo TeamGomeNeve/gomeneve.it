@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stelline Nascenti - Gome Neve</title>
+    <title>Stelline Nascenti - I Nostri Coach</title>
     <style>
         :root {
             --primary-yellow: #FFD700;
@@ -20,7 +20,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
 
         body {
@@ -30,6 +30,7 @@
             padding-top: 100px;
         }
 
+        /* --- Header --- */
         header {
             background-color: rgba(16, 16, 16, 0.95);
             padding: 15px 5%;
@@ -51,32 +52,46 @@
             font-weight: 800;
             text-decoration: none;
             text-transform: uppercase;
+            transition: var(--transition);
+        }
+
+        .back-btn:hover {
+            filter: brightness(1.2);
         }
 
         .logo {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 900;
             color: var(--primary-yellow);
             letter-spacing: 2px;
+            text-align: center;
         }
 
+        /* --- Layout --- */
         section {
-            padding: 60px 10%;
+            padding: 40px 10%;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
         .section-title {
             text-align: center;
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             margin-bottom: 40px;
             color: var(--primary-yellow);
             text-transform: uppercase;
+            border-bottom: 2px solid var(--primary-yellow);
+            display: inline-block;
+            width: 100%;
+            padding-bottom: 10px;
         }
 
+        /* Grid unica per sezione per evitare buchi */
         .coach-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
-            margin-bottom: 30px;
+            margin-bottom: 50px;
         }
 
         .coach-card {
@@ -87,29 +102,45 @@
             transition: var(--transition);
         }
 
-        /* --- STILE PER LE FOTO --- */
+        .coach-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px var(--yellow-glow);
+        }
+
+        /* --- Foto --- */
         .coach-avatar {
             width: 150px;
             height: 150px;
-            margin: 0 auto 10px;
-            /* 10px di spazio sotto la foto */
+            margin: 0 auto 15px;
             border-radius: 50%;
             border: 3px solid var(--primary-yellow);
             overflow: hidden;
             background-color: #333;
         }
 
+        .coach-avatar a {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
         .coach-avatar img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            /* Adatta la foto al cerchio */
             display: block;
+            transition: opacity 0.3s ease;
         }
 
+        .coach-avatar img:hover {
+            opacity: 0.8;
+        }
+
+        /* --- Testi Card --- */
         .coach-card h3 {
             color: var(--primary-yellow);
-            margin-bottom: 10px;
+            margin-bottom: 5px;
+            font-size: 1.4rem;
         }
 
         .coach-role {
@@ -117,6 +148,7 @@
             color: #bbb;
             margin-bottom: 15px;
             font-size: 0.9rem;
+            text-transform: uppercase;
         }
 
         footer {
@@ -127,257 +159,190 @@
             font-weight: 800;
             margin-top: 50px;
         }
+
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 1.1rem;
+            }
+
+            section {
+                padding: 40px 5%;
+            }
+        }
     </style>
 </head>
 
 <body>
 
-    <!DOCTYPE html>
-    <html lang="it">
+    <header>
+        <a href="index.html" class="back-btn">← Home</a>
+        <div class="logo">STELLINE NASCENTI</div>
+        <div style="width: 80px;"></div>
+    </header>
 
-    <head>
-        <meta charset="UTF-8">
-        <title>Stelline Nascenti - I Nostri Coach</title>
-        <style>
-            /* Stile per rendere le foto cliccabili e mantenere la forma circolare */
-            .coach-avatar img {
-                cursor: pointer;
-                transition: opacity 0.3s ease;
-                display: block;
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            }
-
-            .coach-avatar img:hover {
-                opacity: 0.8;
-            }
-
-            .coach-avatar a {
-                display: block;
-                width: 100%;
-                height: 100%;
-                border-radius: 50%;
-                overflow: hidden;
-            }
-        </style>
-    </head>
-
-    <body>
-
-        <header>
-            <a href="index.html" class="back-btn">← Home</a>
-            <div class="logo">STELLINE NASCENTI</div>
-            <div style="width: 80px;"></div>
-        </header>
-
-        <section id="coach">
-            <h2 class="section-title">I Nostri Coach</h2>
-            <div class="coach-grid">
-                <div class="coach-card">
-                    <div class="coach-avatar">
-                        <a href="images\stelline nascenti\sorna.jpg">
-                            <img src="images\stelline nascenti\sorna.jpg" alt="Foto Coach">
-                        </a>
-                    </div>
-                    <h3>Samuele</h3>
-                    <p class="coach-role">Coach Tecnico</p>
-                    <p>Descrizione dell'esperienza del coach.</p>
+    <section id="coach">
+        <h2 class="section-title">I Nostri Coach</h2>
+        <div class="coach-grid">
+            <div class="coach-card">
+                <div class="coach-avatar">
+                    <a href="images/stelline nascenti/sorna.jpg"><img src="images/stelline nascenti/sorna.jpg"
+                            alt="Sorna"></a>
                 </div>
-                <div class="coach-card">
-                    <div class="coach-avatar">
-                        <a href="images\stelline nascenti\IMG-20230603-WA0046(1).jpg">
-                            <img src="images\stelline nascenti\IMG-20230603-WA0046(1).jpg" alt="Foto Coach">
-                        </a>
-                    </div>
-                    <h3>Roberto</h3>
-                    <p class="coach-role">Coach Tecnico</p>
-                    <p>Descrizione dell'esperienza del coach.</p>
-                </div>
+                <h3>Sorna</h3>
+                <p class="coach-role">Coach Tecnico</p>
+                <p>Descrizione dell'esperienza del coach.</p>
             </div>
 
-            <div class="coach-grid">
-                <div class="coach-card">
-                    <div class="coach-avatar">
-                        <a href="images\stelline nascenti\niki.jpg">
-                            <img src="images\stelline nascenti\niki.jpg" alt="Foto Coach">
-                        </a>
-                    </div>
-                    <h3>Nicole</h3>
-                    <p class="coach-role">Coach Scientifico</p>
-                    <p>Descrizione dell'esperienza del coach.</p>
+            <div class="coach-card">
+                <div class="coach-avatar">
+                    <a href="images\stelline nascenti\roooby.jpg"><img src="images\stelline nascenti\roooby.jpg"
+                            alt="Rob"></a>
                 </div>
-
-                <div class="coach-card">
-                    <div class="coach-avatar">
-                        <a href="images\stelline nascenti\nico.jpg">
-                            <img src="images\stelline nascenti\nico.jpg" alt="Foto Coach">
-                        </a>
-                    </div>
-                    <h3>Nicolò</h3>
-                    <p class="coach-role">Coach Tecnico</p>
-                    <p>Descrizione dell'esperienza del coach.</p>
-                </div>
+                <h3>Rob</h3>
+                <p class="coach-role">Coach Tecnico</p>
+                <p>Descrizione dell'esperienza del coach.</p>
             </div>
 
-            <div class="coach-grid">
-                <div class="coach-card">
-                    <div class="coach-avatar">
-                        <a href="images\stelline nascenti\Ila.jpg">
-                            <img src="images\stelline nascenti\Ila.jpg" alt="Foto Coach">
-                        </a>
-                    </div>
-                    <h3>Ilaria</h3>
-                    <p class="coach-role">Coach Scientifico</p>
-                    <p>Descrizione dell'esperienza del coach.</p>
+            <div class="coach-card">
+                <div class="coach-avatar">
+                    <a href="stelline nascenti\niki.jpg"><img src="images/stelline nascenti/niki.jpg" alt="Niki"></a>
                 </div>
-        </section>
+                <h3>Niki</h3>
+                <p class="coach-role">Coach Scientifico</p>
+                <p>Descrizione dell'esperienza del coach.</p>
+            </div>
+
+            <div class="coach-card">
+                <div class="coach-avatar">
+                    <a href="images\stelline nascenti\nico .jpg"><img src="IMAGES\stelline nascenti\nico .jpg"
+                            alt="Nico"></a>
+                </div>
+                <h3>Nico</h3>
+                <p class="coach-role">Coach Tecnico</p>
+                <p>Descrizione dell'esperienza del coach.</p>
+            </div>
+
+            <div class="coach-card">
+                <div class="coach-avatar">
+                    <a href="images/stelline nascenti/Ila.jpg"><img src="images/stelline nascenti/Ila.jpg"
+                            alt="Ila"></a>
+                </div>
+                <h3>Ila</h3>
+                <p class="coach-role">Coach Tecnico</p>
+                <p>Descrizione dell'esperienza del coach.</p>
+            </div>
+        </div>
+    </section>
 
     <section id="ex-coach">
-            <h2 class="section-title">Le nostre stelline nascenti</h2>
-
-            <div class="coach-grid">
-                <div class="coach-card">
-                    <div class="coach-avatar">
-                        <a href="images\stelline nascenti\IMG-20240121-WA0003.jpg">
-                            <img src="images\stelline nascenti\IMG-20240121-WA0003.jpg"
-                                alt="Foto Coach">
-                        </a>
-                    </div>
-                    <h3>Stefano</h3>
-                    <p class="coach-role">Coach Tecnico</p>
-                    <p>Descrizione dell'esperienza del coach.</p>
+        <h2 class="section-title">Le nostre stelline nascenti</h2>
+        <div class="coach-grid">
+            <div class="coach-card">
+                <div class="coach-avatar">
+                    <a href="images/stelline nascenti/IMG-20240121-WA0003.jpg"><img
+                            src="images/stelline nascenti/IMG-20240121-WA0003.jpg" alt="Teto"></a>
                 </div>
-
-                <div class="coach-card">
-                    <div class="coach-avatar">
-                        <a href="images\stelline nascenti\TALMON.jpg">
-                            <img src="images\stelline nascenti\TALMON.jpg" alt="Foto Coach">
-                        </a>
-                    </div>
-                    <h3>Stefano</h3>
-                    <p class="coach-role">Coach Tecnico</p>
-                    <p>Descrizione dell'esperienza del coach.</p>
-                </div>
+                <h3>Teto</h3>
+                <p class="coach-role">Coach Tecnico</p>
+                <p>Descrizione dell'esperienza.</p>
             </div>
 
-            <div class="coach-grid">
-                <div class="coach-card">
-                    <div class="coach-avatar">
-                        <a href="images\stelline nascenti\ciro.jpg">
-                            <img src="images\stelline nascenti\ciro.jpg" alt="Foto Coach">
-                        </a>
-                    </div>
-                    <h3>Filippo</h3>
-                    <p class="coach-role">Coach Tecnico</p>
-                    <p>Descrizione dell'esperienza del coach.</p>
+            <div class="coach-card">
+                <div class="coach-avatar">
+                    <a href="images/stelline nascenti/TALMON.jpg"><img src="images/stelline nascenti/TALMON.jpg"
+                            alt="Talmon"></a>
                 </div>
-
-                <div class="coach-card">
-                    <div class="coach-avatar">
-                        <a href="images\stelline nascenti\sensato.jpg">
-                            <img src="images\stelline nascenti\sensato.jpg" alt="Foto Coach">
-                        </a>
-                    </div>
-                    <h3>Fancesco</h3>
-                    <p class="coach-role">Coach Core Values</p>
-                    <p>Descrizione dell'esperienza del coach.</p>
-                </div>
+                <h3>Talmon</h3>
+                <p class="coach-role">Coach Tecnico</p>
+                <p>Descrizione dell'esperienza.</p>
             </div>
 
-            <div class="coach-grid">
-                <div class="coach-card">
-                    <div class="coach-avatar">
-                        <a href="images\stelline nascenti\__IMG-20221222-WA0016.jpg">
-                            <img src="images\stelline nascenti\__IMG-20221222-WA0016.jpg" alt="Foto Coach">
-                        </a>
-                    </div>
-                    <h3>Martina</h3>
-                    <p class="coach-role">Coach Scientifico</p>
-                    <p>Descrizione dell'esperienza del coach.</p>
+            <div class="coach-card">
+                <div class="coach-avatar">
+                    <a href="images/stelline nascenti/ciro.jpg"><img src="images/stelline nascenti/ciro.jpg"
+                            alt="Ciro"></a>
                 </div>
-
-                <div class="coach-card">
-                    <div class="coach-avatar">
-                        <a href="images\stelline nascenti\moschini.JPG">
-                            <img src="images\stelline nascenti\moschini.JPG" alt="Foto Coach">
-                        </a>
-                    </div>
-                    <h3>Matteo</h3>
-                    <p class="coach-role">Coach Tecnico</p>
-                    <p>Descrizione dell'esperienza del coach.</p>
-                </div>
+                <h3>Ciro</h3>
+                <p class="coach-role">Coach Tecnico</p>
+                <p>Descrizione dell'esperienza.</p>
             </div>
 
-            <div class="coach-grid">
-                <div class="coach-card">
-                    <div class="coach-avatar">
-                        <a href="images\stelline nascenti\IMG_9537.jpg">
-                            <img src="images\stelline nascenti\IMG_9537.jpg" alt="Foto Coach">
-                        </a>
-                    </div>
-                    <h3>Alice</h3>
-                    <p class="coach-role">Coach Scientifico</p>
-                    <p>Descrizione dell'esperienza del coach.</p>
+            <div class="coach-card">
+                <div class="coach-avatar">
+                    <a href="images/stelline nascenti/sensato.jpg"><img src="images/stelline nascenti/sensato.jpg"
+                            alt="Sensi"></a>
                 </div>
-
-                <div class="coach-card">
-                    <div class="coach-avatar">
-                        <a href="images\stelline nascenti\IMG_9535.jpg">
-                            <img src="images\stelline nascenti\IMG_9535.jpg" alt="Foto Coach">
-                        </a>
-                    </div>
-                    <h3>Francesca</h3>
-                    <p class="coach-role">Coach Scientifico</p>
-                    <p>Descrizione dell'esperienza del coach.</p>
-                </div>
+                <h3>Sensi</h3>
+                <p class="coach-role">Coach Core Values</p>
+                <p>Descrizione dell'esperienza.</p>
             </div>
 
-
-       
-            </div>
-                <div class="coach-card">
-                    <div class="coach-avatar">
-                        <a href="images\stelline nascenti\IMG_4943.PNG">
-                            <img src="images\stelline nascenti\IMG_4943.PNG" alt="Foto Coach">
-                        </a>
-                    </div>
-                    <h3>Desideria</h3>
-                    <p class="coach-role">Coach Tecnico</p>
-                    <p>Descrizione dell'esperienza del coach.</p>
+            <div class="coach-card">
+                <div class="coach-avatar">
+                    <a href="images/stelline nascenti\martina.jpg"><img src="images\stelline nascenti\martina.jpg"
+                            alt="Marti"></a>
                 </div>
+                <h3>Marti</h3>
+                <p class="coach-role">Coach Scientifico</p>
+                <p>Descrizione dell'esperienza.</p>
             </div>
 
-            <div class="coach-grid">
-                <div class="coach-card">
-                    <div class="coach-avatar">
-                        <a href="images\stelline nascenti\IMG-20240121-WA0003.jpg">
-                            <img src="images\stelline nascenti\IMG-20240121-WA0003.jpg" alt="Foto Coach">
-                        </a>
-                    </div>
-                    <h3>Arianna</h3>
-                    <p class="coach-role">Coach Scientifico</p>
-                    <p>Descrizione dell'esperienza del coach.</p>
+            <div class="coach-card">
+                <div class="coach-avatar">
+                    <a href="images/stelline nascenti/moschini.JPG"><img src="images/stelline nascenti/moschini.JPG"
+                            alt="Moschini"></a>
                 </div>
-
-                <div class="coach-card">
-                    <div class="coach-avatar">
-                         <a href="images\stelline nascenti\__IMG_4944 (1).PNG">
-                            <img src="images\stelline nascenti\__IMG_4944 (1).PNG" alt="Foto Coach"> 
-                        </a>
-                    </div>
-                    <h3>Ilaria</h3>
-                    <p class="coach-role">Coach Tecnico</p>
-                    <p>Descrizione dell'esperienza del coach.</p>
-                </div>
+                <h3>Moschini</h3>
+                <p class="coach-role">Coach Tecnico</p>
+                <p>Descrizione dell'esperienza.</p>
             </div>
-        </section>
-    </body>
 
-    </html>
+            <div class="coach-card">
+                <div class="coach-avatar">
+                    <a href="images/stelline nascenti/IMG_9537.jpg"><img src="images/stelline nascenti/IMG_9537.jpg"
+                            alt="Alo"></a>
+                </div>
+                <h3>Alo</h3>
+                <p class="coach-role">Coach Scientifico</p>
+                <p>Descrizione dell'esperienza.</p>
+            </div>
+
+            <div class="coach-card">
+                <div class="coach-avatar">
+                    <a href="images/stelline nascenti/IMG_9535.jpg"><img src="images/stelline nascenti/IMG_9535.jpg"
+                            alt="Franci"></a>
+                </div>
+                <h3>Franci</h3>
+                <p class="coach-role">Coach Scientifico</p>
+                <p>Descrizione dell'esperienza.</p>
+            </div>
+
+            <div class="coach-card">
+                <div class="coach-avatar">
+                    <a href="images/stelline nascenti/IMG_4943.PNG"><img src="images/stelline nascenti/IMG_4943.PNG"
+                            alt="Desi"></a>
+                </div>
+                <h3>Desi</h3>
+                <p class="coach-role">Coach Tecnico</p>
+                <p>Descrizione dell'esperienza.</p>
+            </div>
+
+            <div class="coach-card">
+                <div class="coach-avatar">
+                    <a href="images/stelline nascenti/__IMG_4944 (1).PNG"><img
+                            src="images/stelline nascenti/__IMG_4944 (1).PNG" alt="Ilaria"></a>
+                </div>
+                <h3>Ila</h3>
+                <p class="coach-role">Coach Tecnico</p>
+                <p>Descrizione dell'esperienza.</p>
+            </div>
+        </div>
+    </section>
 
     <footer>
-        &copy; 2025 Gome Neve Robotics Team
+        &copy; 2026 Gome Neve Robotics Team
     </footer>
 
 </body>
+
+</html>
