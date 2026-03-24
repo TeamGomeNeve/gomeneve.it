@@ -2,36 +2,32 @@
 <html lang="it">
 
 <head>
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-KXPKT856');</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Robot - Progetto Tecnico</title>
+    <title>Robot - Progetto Tecnico | Gome Neve</title>
     <style>
         /* --- VARIABILI E RESET --- */
         :root {
             --primary-yellow: #FFD700;
+            --secondary-yellow: rgba(255, 174, 0, 0.6);
             --yellow-glow: rgba(255, 215, 0, 0.4);
             --dark-bg: #101010;
             --card-bg: #1a1a1a;
             --text-white: #ffffff;
             --text-black: #000000;
+            --transition: 0.3s ease;
         }
 
         html {
             scroll-behavior: smooth;
-        }
-
-        ::-webkit-scrollbar {
-            width: 14px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #101010;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--primary-yellow);
-            border-radius: 10px;
-            border: 3px solid #101010;
         }
 
         * {
@@ -41,13 +37,25 @@
             font-family: 'Segoe UI', 'Roboto', Helvetica, Arial, sans-serif;
         }
 
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--dark-bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: var(--primary-yellow);
+            border: 3px solid var(--dark-bg);
+        }
+
         body {
-            margin: 0;
-            padding: 0;
             background-color: var(--dark-bg);
             color: var(--text-white);
             line-height: 1.6;
-            overflow-x: hidden; /* Fondamentale per evitare la barra laterale */
+            overflow-x: hidden;
         }
 
         /* --- HEADER --- */
@@ -68,11 +76,12 @@
         .back-btn {
             background-color: var(--primary-yellow);
             color: var(--text-black);
-            padding: 8px 15px;
+            padding: 8px 20px;
             font-weight: 800;
             text-transform: uppercase;
             text-decoration: none;
-            transition: 0.3s;
+            transition: var(--transition);
+            clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
         }
 
         .back-btn:hover {
@@ -81,7 +90,7 @@
         }
 
         .logo {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 900;
             color: var(--primary-yellow);
             text-transform: uppercase;
@@ -90,206 +99,285 @@
 
         /* --- HERO SECTION --- */
         .hero {
-            min-height: 80vh;
-            width: 100%; /* Occupa tutto lo spazio disponibile */
+            min-height: 60vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 0 20px;
-            
-            /* Background settings */
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(16, 16, 16, 0.8)),
-                        url('FOTO_1.5.JPG');
-            background-size: cover;      /* La foto riempie tutta l'area senza bordi neri */
-            background-position: center; /* Mantiene il robot/soggetto al centro */
-            background-repeat: no-repeat;
-            
+            padding: 120px 20px 60px;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(16, 16, 16, 0.9)), url('FOTO_1.5.JPG');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             border-bottom: 4px solid var(--primary-yellow);
-            /* Se l'header è fixed, usiamo il padding invece del margin per non staccare lo sfondo */
-            padding-top: 60px; 
-        }   
+        }
+
         .hero h1 {
-            font-size: clamp(3rem, 10vw, 5rem);
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
             color: var(--primary-yellow);
             text-transform: uppercase;
             font-weight: 900;
             text-shadow: 3px 3px 0px #000;
+            margin-top: 10px;
+        }
+
+        .hero .badge {
+            background: var(--primary-yellow);
+            color: black;
+            padding: 5px 25px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
         }
 
         /* --- LAYOUT --- */
         main {
-            padding: 60px 5%;
-        }
-
-        section {
-            max-width: 1000px;
-            margin: 0 auto 60px auto;
+            padding: 60px 10%;
         }
 
         .section-title {
             text-align: center;
             font-size: 2.5rem;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
             text-transform: uppercase;
+            font-weight: 800;
             color: var(--primary-yellow);
+            text-shadow: 3px 3px 0px var(--secondary-yellow);
         }
 
-        .image-box {
-            width: 100%; /* Occupa tutto lo spazio del contenitore 'section' */
-            max-width: 1000px; /* Si allinea alla larghezza massima della sezione */
-            height: auto; /* L'altezza si adatta proporzionalmente alla foto */
-            background-color: #222;
+        /* Box Immagini */
+        .image-box,
+        .robot-img-wrapper {
+            width: 100%;
+            background-color: var(--card-bg);
             border: 2px solid var(--primary-yellow);
-            margin: 0 auto 30px auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            margin-bottom: 30px;
             overflow: hidden;
             cursor: pointer;
+            position: relative;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.1);
         }
 
-        .image-box img {
+        .image-box img,
+        .robot-img-wrapper img {
             width: 100%;
-            height: auto; /* Evita che l'immagine si schiacci */
+            height: auto;
             display: block;
-            object-fit: contain; /* Mostra tutta l'immagine senza tagliarla */
-            transition: transform 0.3s ease;
+            transition: transform 0.5s ease;
         }
 
-        .image-box img:hover {
-            transform: scale(1.02);
+        .image-box:hover img,
+        .robot-img-wrapper:hover img {
+            transform: scale(1.03);
         }
 
-        /* Caselle di Testo */
+        /* Testi */
         .text-container {
             background-color: var(--card-bg);
-            padding: 30px;
-            border-left: 5px solid var(--primary-yellow);
-            margin: 0 auto 40px auto;
-            max-width: 800px;
-            box-shadow: 10px 10px 0px rgba(255, 215, 0, 0.1);
+            padding: 40px;
+            border-left: 6px solid var(--primary-yellow);
+            margin-bottom: 60px;
+            box-shadow: 10px 10px 0px rgba(255, 215, 0, 0.05);
         }
 
         .text-container h3 {
             color: var(--primary-yellow);
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             text-transform: uppercase;
+            font-size: 1.5rem;
         }
 
-        /* Schede Robot Centrate */
-        .robot-container {
-            max-width: 800px;
-            margin: 0 auto 50px auto;
+        /* Robot Grid */
+        .robot-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .robot-card {
             background-color: var(--card-bg);
             padding: 20px;
             border: 1px solid #333;
             text-align: center;
+            transition: var(--transition);
         }
 
-        .robot-img-wrapper {
+        .robot-card:hover {
+            border-color: var(--primary-yellow);
+            transform: translateY(-5px);
+        }
+
+        .robot-card h3 {
+            margin-bottom: 15px;
+            color: var(--primary-yellow);
+            text-transform: uppercase;
+        }
+
+        /* --- LIGHTBOX --- */
+        .lightbox-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            height: auto;
-            margin-top: 15px;
-            border: 1px solid var(--primary-yellow);
-            overflow: hidden;
-            cursor: pointer;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            cursor: zoom-out;
         }
 
-        .robot-img-wrapper img {
-            width: 100%;
-            display: block;
-            transition: opacity 0.3s;
+        .lightbox-overlay.active {
+            display: flex;
         }
 
-        .robot-img-wrapper img:hover {
-            opacity: 0.8;
+        .lightbox-overlay img {
+            max-width: 90%;
+            max-height: 85%;
+            border: 3px solid var(--primary-yellow);
+            box-shadow: 0 0 50px var(--yellow-glow);
         }
 
         /* --- FOOTER --- */
         footer {
-            background-color: var(--primary-yellow);
-            color: var(--text-black);
+            background-color: var(--dark-bg);
+            color: var(--text-white);
             text-align: center;
-            padding: 30px 0;
-            font-weight: bold;
+            padding: 40px 0;
+            border-top: 2px solid #333;
+            font-weight: 800;
             text-transform: uppercase;
-            margin-top: 50px;
+            font-size: 0.8rem;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            main {
+                padding: 40px 5%;
+            }
+
+            .hero {
+                min-height: 40vh;
+            }
+
+            .logo {
+                display: none;
+            }
         }
     </style>
 </head>
 
 <body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KXPKT856" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+
+    <div class="lightbox-overlay" id="lightbox">
+        <img src="" alt="Zoom" id="lightbox-img">
+    </div>
 
     <header>
         <a href="../index.html" class="back-btn">← Home</a>
-        <div class="logo">ROBOTICA 2026</div>
+        <div class="logo">Gome Neve Tech</div>
         <div style="width: 80px;"></div>
     </header>
 
     <section class="hero">
-        <div
-            style="background: var(--primary-yellow); color: black; padding: 5px 20px; font-weight: 900; margin-bottom: 20px;">
-            PROGETTO TECNICO
-        </div>
+        <div class="badge">Engineering Hub</div>
         <h1>ROBOT UNDER CONSTRUCTION</h1>
-        <p style="letter-spacing: 3px; text-transform: uppercase;">Sviluppo Meccanico e Software</p>
+        <p style="letter-spacing: 4px; text-transform: uppercase; color: var(--primary-yellow);">Sviluppo Meccanico e
+            Software 2026</p>
     </section>
 
     <main>
         <section id="analisi">
             <h2 class="section-title">Specifiche Tecniche</h2>
 
-            <div class="image-box" onclick="window.location.href=this.querySelector('img').src">
-                <img src="" alt="VIDEO DEL ROBOT">
+            <div class="image-box">
+                <img src="video_placeholder.png" alt="Anteprima Robot">
             </div>
 
             <div class="text-container">
-                <h3>Descrizione Meccanica</h3>
+                <h3>Design & Meccanica</h3>
                 <p>
-                    CHIEDI AL ROBOT DI PULLARE UNA DESCRIZIONE
+                    Il nostro robot è progettato per massimizzare l'efficienza negli spostamenti e la precisione nei
+                    task di gara.
+                    Utilizziamo componenti personalizzati in stampa 3D e un telaio rinforzato per garantire stabilità
+                    durante le missioni più complesse.
                 </p>
             </div>
         </section>
 
-        <section id="componenti">
-            <h2 class="section-title">Sistemi di Controllo</h2>
+        <section id="storia">
+            <h2 class="section-title">Evoluzione del Team</h2>
 
             <div class="text-container">
-                <h3>Software e Intelligenza</h3>
+                <h3>Software e Logica di Controllo</h3>
                 <p>
-                    CONTROLLA SUL PROGETTO TECNICO
+                    Utilizziamo algoritmi di navigazione avanzati basati su sensori di colore e giroscopi per correggere
+                    la traiettoria in tempo reale.
+                    Il codice è strutturato a blocchi o in Python per permettere una manutenzione rapida durante le
+                    competizioni.
                 </p>
             </div>
 
-            <div class="robot-container">
-                <h3 style="margin-bottom: 10px; color: var(--primary-yellow);">ROBOT 2023/24</h3>
-                <div class="robot-img-wrapper" onclick="window.location.href=this.querySelector('img').src">
-                    <img src="robot_masterpiece1.png" alt="Robot 23/24">
+            <div class="robot-grid">
+                <div class="robot-card">
+                    <h3>Season 23/24</h3>
+                    <div class="robot-img-wrapper">
+                        <img src="robot_masterpiece1.png" alt="Robot Masterpiece">
+                    </div>
+                    <p style="font-size: 0.8rem; margin-top: 10px;">MASTERPIECE</p>
                 </div>
-            </div>
 
-            <div class="robot-container">
-                <h3 style="margin-bottom: 10px; color: var(--primary-yellow);">ROBOT 2024/25</h3>
-                <div class="robot-img-wrapper" onclick="window.location.href=this.querySelector('img').src">
-                    <img src="robot_submerged.JPG" alt="Robot 24/25">
+                <div class="robot-card">
+                    <h3>Season 24/25</h3>
+                    <div class="robot-img-wrapper">
+                        <img src="robot_submerged.JPG" alt="Robot Submerged">
+                    </div>
+                    <p style="font-size: 0.8rem; margin-top: 10px;">SUBMERGED</p>
                 </div>
-            </div>
 
-            <div class="robot-container">
-                <h3 style="margin-bottom: 10px; color: var(--primary-yellow);">ROBOT 2025/26</h3>
-                <div class="robot-img-wrapper" onclick="window.location.href=this.querySelector('img').src">
-                    <img src="robot_unearthed.png" alt="Robot 25/26">
+                <div class="robot-card">
+                    <h3>Season 25/26</h3>
+                    <div class="robot-img-wrapper">
+                        <img src="robot_unearthed.png" alt="Robot Unearthed">
+                    </div>
+                    <p style="font-size: 0.8rem; margin-top: 10px;">UNEARTHED</p>
                 </div>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2026 - Documentazione Tecnica Robotica - Progetto Robot</p>
+        &copy; 2026 Gome Neve Robotics Team - Scuola Ladina di Fassa
     </footer>
 
+    <script>
+        // --- GESTIONE LIGHTBOX ---
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const allImages = document.querySelectorAll('img');
+
+        allImages.forEach(img => {
+            // Evitiamo che il lightbox si applichi a icone piccole o loghi se necessario
+            img.addEventListener('click', () => {
+                lightboxImg.src = img.src;
+                lightbox.classList.add('active');
+            });
+        });
+
+        lightbox.addEventListener('click', () => {
+            lightbox.classList.remove('active');
+        });
+
+        // Chiudi con il tasto ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === "Escape") lightbox.classList.remove('active');
+        });
+    </script>
 </body>
 
-</html>     
+</html>

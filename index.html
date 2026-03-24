@@ -2,11 +2,14 @@
 <html lang="it">
 
 <head>
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-KXPKT856');</script>
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-KXPKT856');</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gome Neve - Robotics Team</title>
@@ -101,9 +104,8 @@
             list-style: none;
         }
 
-        /* REGOLA REINSERITA PER ALLINEARE LE TENDINE */
         nav ul li {
-            position: relative; 
+            position: relative;
         }
 
         nav ul li a {
@@ -185,7 +187,6 @@
             text-transform: uppercase;
             letter-spacing: 3px;
         }
-        
 
         /* --- BOTTONI --- */
         .btn {
@@ -262,12 +263,19 @@
             justify-content: center;
             box-shadow: 15px 15px 0px rgba(0, 0, 0, 0.1);
             overflow: hidden;
+            cursor: pointer;
+            /* Indichiamo che l'immagine è cliccabile */
         }
 
         .about-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .about-img:hover img {
+            transform: scale(1.05);
         }
 
         /* --- SFIDE & SPECIAL BOXES --- */
@@ -314,6 +322,43 @@
             justify-content: center;
             box-shadow: 0 0 30px rgba(255, 215, 0, 0.1);
             overflow: hidden;
+            cursor: pointer;
+            /* Indichiamo che l'immagine è cliccabile */
+        }
+
+        .photo-container img {
+            transition: transform 0.3s ease;
+        }
+
+        .photo-container:hover img {
+            transform: scale(1.02);
+        }
+
+        /* --- LIGHTBOX (MODALE IMMAGINI) --- */
+        .lightbox-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            cursor: zoom-out;
+        }
+
+        .lightbox-overlay.active {
+            display: flex;
+        }
+
+        .lightbox-overlay img {
+            max-width: 90%;
+            max-height: 85%;
+            box-shadow: 0 0 40px var(--primary-yellow);
+            border: 3px solid var(--primary-yellow);
+            cursor: default;
         }
 
         /* --- CONTACT & FOOTER --- */
@@ -345,27 +390,47 @@
 
         /* --- RESPONSIVE --- */
         @media screen and (max-width: 768px) {
-            .hamburger { display: block; }
+            .hamburger {
+                display: block;
+            }
+
             nav {
                 width: 100%;
                 display: none;
                 background-color: rgba(16, 16, 16, 0.98);
                 margin-top: 10px;
             }
-            nav.active { display: block; }
-            nav ul { flex-direction: column; padding: 20px 0; }
-            .about-grid { grid-template-columns: 1fr; }
-            #about { clip-path: none; }
+
+            nav.active {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+                padding: 20px 0;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            #about {
+                clip-path: none;
+            }
         }
     </style>
 </head>
 
 <body>
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KXPKT856"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KXPKT856" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+
+    <div class="lightbox-overlay" id="lightbox">
+        <img src="" alt="Zoom Immagine" id="lightbox-img">
+    </div>
+
     <header>
-        <div class="logo"><a href="index.html">Gome Neve</a></div> 
+        <div class="logo"><a href="index.html">Gome Neve</a></div>
         <div class="hamburger" id="hamburger-btn">☰</div>
         <nav id="nav-menu">
             <ul>
@@ -398,7 +463,8 @@
         <div class="about-grid">
             <div class="about-text">
                 <h3 style="margin-bottom: 15px; text-transform: uppercase;">Passione per la Tecnologia</h3>
-                <p>Siamo il team Gome Neve della Scuola Ladina di Fassa. Partecipiamo alla competizione <strong>FIRST LEGO LEAGUE</strong> con entusiasmo e creatività.</p>
+                <p>Siamo il team Gome Neve della Scuola Ladina di Fassa. Partecipiamo alla competizione <strong>FIRST
+                        LEGO LEAGUE</strong> con entusiasmo e creatività.</p>
                 <br>
                 <a href="#contact" class="btn btn-inverse">Unisciti a noi</a>
             </div>
@@ -424,10 +490,12 @@
     <section id="coach" class="special-box">
         <h2 class="section-title">I Nostri coach</h2>
         <div class="photo-container">
-            <img src="stelline_nascenti/boomer.jpg" alt="vecchia guardia" style="width: 100%; height: 100%; object-fit: cover;">
+            <img src="stelline_nascenti/boomer.jpg" alt="vecchia guardia"
+                style="width: 100%; height: 100%; object-fit: cover;">
         </div>
         <div class="challenges-container">
-             <a href="stelline_nascenti/stelline_nascenti.html" class="challenge-card" style="width: 100%; max-width: 400px;">
+            <a href="stelline_nascenti/stelline_nascenti.html" class="challenge-card"
+                style="width: 100%; max-width: 400px;">
                 <h3>Stelline Nascenti</h3>
                 <p>MENTORI PROGETTO TECNICO E SCIENTIFICO</p>
             </a>
@@ -437,16 +505,29 @@
     <section id="challenges">
         <h2 class="section-title">Le Nostre Sfide</h2>
         <div class="challenges-container">
-            <a href="archeomesh/stagione_25_26.html" class="challenge-card"><h3>Unearthed</h3><p>2025 - 2026</p></a>
-            <a href="mut/stagione_24_25.html" class="challenge-card"><h3>Submerged</h3><p>2024 - 2025</p></a>
-            <a href="steamposio/stagione_23_24.html" class="challenge-card"><h3>Masterpiece</h3><p>2023 - 2024</p></a>
-            <a href="cesla/stagione_22_23.html" class="challenge-card"><h3>Super Powered</h3><p>2022 - 2023</p></a>
+            <a href="archeomesh/stagione_25_26.html" class="challenge-card">
+                <h3>Unearthed</h3>
+                <p>2025 - 2026</p>
+            </a>
+            <a href="mut/stagione_24_25.html" class="challenge-card">
+                <h3>Submerged</h3>
+                <p>2024 - 2025</p>
+            </a>
+            <a href="steamposio/stagione_23_24.html" class="challenge-card">
+                <h3>Masterpiece</h3>
+                <p>2023 - 2024</p>
+            </a>
+            <a href="cesla/stagione_22_23.html" class="challenge-card">
+                <h3>Super Powered</h3>
+                <p>2022 - 2023</p>
+            </a>
         </div>
     </section>
 
     <section id="contact">
         <h2 class="section-title">Contattaci</h2>
-        <p style="font-size: 1.2rem; font-weight: 600; margin-bottom: 30px;">Hai domande sulla nostra attività o vuoi supportare il team?</p>
+        <p style="font-size: 1.2rem; font-weight: 600; margin-bottom: 30px;">Hai domande sulla nostra attività o vuoi
+            supportare il team?</p>
         <a href="mailto:gomeneve@scuolaladina.com" class="btn btn-inverse">Invia un'Email</a>
     </section>
 
@@ -455,6 +536,7 @@
     </footer>
 
     <script>
+        // --- MENU HAMBURGER ---
         const hamburger = document.getElementById('hamburger-btn');
         const nav = document.getElementById('nav-menu');
 
@@ -465,14 +547,33 @@
 
         document.querySelectorAll('nav ul li a').forEach(link => {
             link.addEventListener('click', () => {
-                if(!link.nextElementSibling) {
+                if (!link.nextElementSibling) {
                     nav.classList.remove('active');
                     hamburger.innerHTML = '☰';
                 }
             });
         });
 
-    // --- GESTIONE FRASI CASUALI ---
+        // --- GESTIONE LIGHTBOX (IMMAGINI) ---
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+
+        // Trova tutte le immagini cliccabili nelle sezioni
+        const clickableImages = document.querySelectorAll('.about-img img, .photo-container img');
+
+        clickableImages.forEach(image => {
+            image.addEventListener('click', () => {
+                lightboxImg.src = image.src;
+                lightbox.classList.add('active');
+            });
+        });
+
+        // Chiudi cliccando fuori dall'immagine
+        lightbox.addEventListener('click', () => {
+            lightbox.classList.remove('active');
+        });
+
+        // --- GESTIONE FRASI CASUALI ---
         const quotes = [
             "Costruiamo il futuro, un mattoncino alla volta.",
             "L'unico limite è la nostra creatività.",
@@ -484,11 +585,10 @@
 
         const quoteDisplay = document.getElementById('quote-display');
         if (quoteDisplay) {
-            // Sceglie un numero a caso in base a quante frasi ci sono
             const randomIndex = Math.floor(Math.random() * quotes.length);
-            // Inserisce la frase nel contenitore HTML
             quoteDisplay.innerText = `"${quotes[randomIndex]}"`;
         }
     </script>
 </body>
+
 </html>
