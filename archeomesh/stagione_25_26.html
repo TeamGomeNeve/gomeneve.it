@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unearthed - Gome Neve 25/26</title>
+    <style>
+        /* --- VARIABILI E RESET --- */
+        :root {
+            --primary-yellow: #FFD700;
+            --yellow-glow: rgba(255, 215, 0, 0.4);
+            --dark-bg: #101010;
+            --card-bg: #1a1a1a;
+            --text-white: #ffffff;
+            --text-black: #000000;
+        }
+
+        /* --- SCORRIMENTO FLUIDO E BARRA GIALLA --- */
+        html {
+            scroll-behavior: smooth;
+            overflow-y: scroll;
+        }
+
+        ::-webkit-scrollbar {
+            width: 14px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #101010;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-yellow);
+            border-radius: 10px;
+            border: 3px solid #101010;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Roboto', Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- HEADER --- */
+        header {
+            background-color: rgba(16, 16, 16, 0.95);
+            padding: 15px 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 4px solid var(--primary-yellow);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 20px var(--yellow-glow);
+        }
+
+        .back-btn {
+            background-color: var(--primary-yellow);
+            color: var(--text-black);
+            padding: 8px 15px;
+            font-weight: 800;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .back-btn:hover {
+            background-color: white;
+            transform: scale(1.05);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--primary-yellow);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* --- HERO SECTION (UNEARTHED) --- */
+        .hero {
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(16, 16, 16, 1)),
+                url('images/soricia.jpg');
+            background-size: cover;
+            background-position: center;
+            border-bottom: 2px solid var(--primary-yellow);
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 10vw, 6rem);
+            color: var(--primary-yellow);
+            text-transform: uppercase;
+            font-weight: 900;
+            text-shadow: 3px 3px 0px #000;
+            margin-bottom: 10px;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            color: #fff;
+            font-weight: 300;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        /* --- CONTENUTI --- */
+        section {
+            padding: 80px 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            font-weight: 800;
+            color: var(--primary-yellow);
+        }
+
+        /* NUOVO LAYOUT A GRIGLIA/FLEX PER TESTO E IMMAGINI */
+        .feature-row {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+
+        /* Inverte l'ordine: immagine a sinistra, testo a destra */
+        .feature-row.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .text-content {
+            flex: 1;
+            background-color: var(--card-bg);
+            padding: 40px;
+            border-left: 8px solid var(--primary-yellow);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+
+        .feature-row.reverse .text-content {
+            border-left: none;
+            border-right: 8px solid var(--primary-yellow);
+        }
+
+        .text-content h3 {
+            color: var(--primary-yellow);
+            text-transform: uppercase;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .text-content p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .image-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .img-styled {
+            width: 100%;
+            height: auto;
+            border: 3px solid var(--primary-yellow);
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.1);
+            object-fit: cover;
+        }
+
+        /* Stile specifico per l'immagine dello schema con sfondo bianco */
+        .img-white-bg {
+            background-color: white;
+            padding: 10px;
+        }
+
+        /* --- RESPONSIVE DESIGN PER CELLULARI --- */
+        @media (max-width: 900px) {
+            .feature-row, .feature-row.reverse {
+                flex-direction: column;
+            }
+            .feature-row.reverse .text-content {
+                border-right: none;
+                border-left: 8px solid var(--primary-yellow);
+            }
+            /* Regola per far andare le immagini sotto su mobile */
+            .grid-to-stack {
+                grid-template-columns: 1fr !important; /* Forza una sola colonna */
+            }
+        }   
+        
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--primary-yellow);
+            color: var(--text-black);
+            text-align: center;
+            padding: 40px 0;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a href="index.html" class="back-btn">← Home</a>
+        <div class="logo">UNEARTHED</div>
+        <div style="width: 80px;"></div>
+    </header>
+
+    <section class="hero">
+        <div style="background: var(--primary-yellow); color: black; padding: 5px 20px; font-weight: 900; margin-bottom: 20px;">
+            STAGIONE 25/26
+        </div>
+        <h1>ARCHEOMESH</h1>
+        <p class="subtitle">Esplorazione e Tecnologia del sottosuolo</p>
+    </section>
+
+    <main>
+        <section id="vision">
+            <h2 class="section-title">Oltre la Superficie</h2>
+
+            <div class="feature-row">
+                <div class="text-content">
+                    <h3>Il Nostro Progetto</h3>
+                    <p>
+                        Per la nuova stagione Unearthed 2025/2026, il nostro team si è spinto fino ai confini più remoti
+                        della tecnologia, arrivando così a portare la nostra inventiva nel sottosuolo. Attraverso un attento
+                        studio sulla problematica legata alla sicurezza degli archeologi durante le loro esplorazioni in
+                        varie aree del mondo (tra cui grotte, piramidi, ghiacciai e non solo), è nato il progetto
+                        <strong>“Archeomesh”</strong>.
+                    </p>
+                    <p>
+                        Quest’ultimo utilizza una tecnologia di <strong>Rete Mesh</strong> (una tecnologia radio unificata
+                        che funziona senza l'utilizzo del Wi-Fi) per creare delle strutture modulari intelligenti
+                        (braccialetti) da far indossare agli speleologi. Lo scopo è comunicare tra di loro e
+                        monitorare sia le condizioni di salute (battito cardiaco e pressione) sia quelle dell’ambiente
+                        circostante, verificando eventuali fuoriuscite di gas o cedimenti strutturali.
+                    </p>
+                </div>
+                <div class="image-content">
+                    <img src="Archeo_main.png" alt="Schematic Archeomesh" class="img-styled img-white-bg">
+                </div>
+            </div>
+
+            <div class="feature-row reverse">
+                <div class="text-content">
+                    <h3>Progettazione e Kicad</h3>
+                    <p>
+                        Abbiamo scelto di sviluppare noi stessi lo schema del prototipo attraverso l’applicazione <strong>Kicad</strong>, un
+                        software open source adatto alla progettazione di circuiti elettronici. 
+                    </p>
+                    <p>
+                        Dopo aver realizzato lo schema online abbiamo sviluppato il progetto su carta per poi creare il modellino. Il
+                        processo di realizzazione ha richiesto lo studio di percorsi precisi per connettere le componenti fra di loro, garantendo il perfetto scambio di dati e alimentazione.
+                    </p>
+                </div>
+                <div class="image-content">
+                    <img src="archeo.png" alt="Tracciati PCB Kicad" class="img-styled">
+                </div>
+            </div>
+
+           <div class="feature-row" style="flex-direction: column; align-items: flex-start;">
+                <div class="text-content" style="width: 100%; margin-bottom: 20px;">
+                    <h3>Saldatura e Componentistica</h3>
+                    <p>
+                        Il processo pratico ha compreso la saldatura delle schede e dei chip. La saldatura a stagno è stata un'operazione di estrema precisione che ha richiesto molta pazienza.
+                    </p>
+                    <p>
+                        Abbiamo testato diverse disposizioni per i vari componenti sulla scheda prima di trovare quella ottimale. Sulla scheda trovano posto moduli essenziali come l'ESP32, il modulo Lo-Ra 02 per la comunicazione a lungo raggio, e svariati sensori (battito, umidità, gas, temperatura).
+                    </p>
+                </div>
+                
+                <div class="image-content grid-to-stack" style="width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div style="text-align: center;">
+                        <img src="pcb_scan_holes_2.png" alt="Componenti PCB Fronte" class="img-styled">
+                        <p style="color: var(--primary-yellow); margin-top: 10px; font-size: 0.9rem; text-transform: uppercase;">Vista Frontale (Sensori e Chip)</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <img src="pcb_scan_holes_1.png" alt="Componenti PCB Retro" class="img-styled">
+                        <p style="color: var(--primary-yellow); margin-top: 10px; font-size: 0.9rem; text-transform: uppercase;">Vista Posteriore (Saldature e Tracciati)</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feature-row reverse">
+                <div class="text-content">
+                    <h3>Sviluppo ed Evoluzione</h3>
+                    <p>
+                        Sulla scia del successo ottenuto alla competizione di Canazei, il team ha avviato una fase critica
+                        di evoluzione tecnologica per il progetto. Il cuore di questa iterazione è la transizione
+                        verso una scheda PCB (Printed Circuit Board) custom, progettata per massimizzare la compattezza e
+                        l'affidabilità operativa del sistema.
+                    </p>
+                    <p>
+                        Grazie a questa ottimizzazione hardware, prevediamo una <strong>riduzione del 50% nell'ingombro</strong> dei
+                        dispositivi, rendendo l'installazione sul campo più agile. La nuova architettura
+                        integra un sensore di umidità ad alta precisione.
+                    </p>
+                    <p>
+                        Con una proiezione di costi di produzione industriale nell'ordine di pochi euro per unità,
+                        Archeomesh si posiziona come una soluzione non solo tecnicamente avanzata, ma estremamente scalabile
+                        e sostenibile.
+                    </p>
+                </div>
+                <div class="image-content">
+                    <img src="archeo_pcb_render.png" alt="Render 3D del PCB compatto" class="img-styled">
+                    <img src="render_archeomesh.PNG" alt="Render Archeomesh Finale" class="img-styled">
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Gome Neve Robotics Team - Progetto Unearthed</p>
+    </footer>
+
+</body>
+</html>
