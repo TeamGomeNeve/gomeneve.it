@@ -198,11 +198,10 @@
     </style>
 </head>
 
-<section id="home" class="hero">
-    <h1>Stelline Nascenti⭐</h1>
-</section>
-
 <body>
+    <section id="home" class="hero">
+        <h1>Stelline Nascenti⭐</h1>
+    </section>
 
     <header>
         <a href="../index.html" class="back-btn">← Home</a>
@@ -228,7 +227,7 @@
                 </div>
                 <h3>Rob</h3>
                 <p class="coach-role">Coach Tecnico</p>
-                <p class="quote">Descrizione dell'esperienza del coach.</p>
+                <p id="rob-quote" class="quote"></p>
             </div>
 
             <div class="coach-card">
@@ -237,7 +236,7 @@
                 </div>
                 <h3>Niki</h3>
                 <p class="coach-role">Coach Scientifico</p>
-                <p class="quote">"Robotica best therapy per disagiati ed esauriti"</p>
+                <p id="niki-quote" class="quote"></p>
             </div>
 
             <div class="coach-card">
@@ -246,7 +245,7 @@
                 </div>
                 <h3>Nico</h3>
                 <p class="coach-role">Coach Tecnico</p>
-                <p class="quote">Descrizione dell'esperienza del coach.</p>
+                <p id="nico-quote" class="quote"></p>
             </div>
 
             <div class="coach-card">
@@ -255,7 +254,7 @@
                 </div>
                 <h3>Ila</h3>
                 <p class="coach-role">Coach Tecnico</p>
-                <p class="quote">Descrizione dell'esperienza del coach.</p>
+                <p id="ila-quote" class="quote"></p>
             </div>
         </div>
     </section>
@@ -269,7 +268,7 @@
                 </div>
                 <h3>Teto</h3>
                 <p class="coach-role">Coach Tecnico</p>
-                <p class="quote">Descrizione dell'esperienza.</p>
+                <p id="teto-quote" class="quote"></p>
             </div>
 
             <div class="coach-card">
@@ -278,8 +277,7 @@
                 </div>
                 <h3>Talmon</h3>
                 <p class="coach-role">Stella nascente⭐</p>
-                <p class="quote">"5 anni di robotica<br>0 premi stella nascenti<br>almeno ho preso il mio vodka
-                    sureeeee🍹🍹🍹"</p>
+                <p id="talmon-quote" class="quote"></p>
             </div>
 
             <div class="coach-card">
@@ -288,7 +286,7 @@
                 </div>
                 <h3>Ciro</h3>
                 <p class="coach-role">Coach Tecnico</p>
-                <p class="quote">Descrizione dell'esperienza.</p>
+                <p id="ciro-quote" class="quote"></p>
             </div>
 
             <div class="coach-card">
@@ -297,7 +295,7 @@
                 </div>
                 <h3>Sensi</h3>
                 <p class="coach-role">Coach Core Values</p>
-                <p class="quote">Descrizione dell'esperienza.</p>
+                <p id="sensi-quote" class="quote"></p>
             </div>
 
             <div class="coach-card">
@@ -306,7 +304,7 @@
                 </div>
                 <h3>Marti</h3>
                 <p class="coach-role">Coach Scientifico</p>
-                <p class="quote">"A mali estremi bevi rimedi"</p>
+                <p id="marti-quote" class="quote"></p>
             </div>
 
             <div class="coach-card">
@@ -315,7 +313,7 @@
                 </div>
                 <h3>Ari</h3>
                 <p class="coach-role">Coach Scientifico</p>
-                <p class="quote">Descrizione dell'esperienza.</p>
+                <p id="ari-quote" class="quote"></p>
             </div>
 
             <div class="coach-card">
@@ -324,7 +322,7 @@
                 </div>
                 <h3>Moschini</h3>
                 <p class="coach-role">Coach Tecnico</p>
-                <p class="quote">Descrizione dell'esperienza.</p>
+                <p id="moschini-quote" class="quote"></p>
             </div>
 
             <div class="coach-card">
@@ -333,7 +331,7 @@
                 </div>
                 <h3>Alo</h3>
                 <p class="coach-role">Coach Scientifico</p>
-                <p class="quote">Descrizione dell'esperienza.</p>
+                <p id="alo-quote" class="quote"></p>
             </div>
 
             <div class="coach-card">
@@ -342,7 +340,7 @@
                 </div>
                 <h3>Franci</h3>
                 <p class="coach-role">Coach Scientifico</p>
-                <p class="quote">Descrizione dell'esperienza.</p>
+                <p id="franci-quote" class="quote"></p>
             </div>
 
             <div class="coach-card">
@@ -351,7 +349,7 @@
                 </div>
                 <h3>Desi</h3>
                 <p class="coach-role">Coach Tecnico</p>
-                <p class="quote">Descrizione dell'esperienza.</p>
+                <p id="desi-quote" class="quote"></p>
             </div>
 
             <div class="coach-card">
@@ -360,7 +358,7 @@
                 </div>
                 <h3>Ila</h3>
                 <p class="coach-role">Coach Tecnico</p>
-                <p class="quote">Descrizione dell'esperienza.</p>
+                <p id="ilaria-quote" class="quote"></p>
             </div>
         </div>
     </section>
@@ -370,18 +368,115 @@
     </footer>
 
     <script>
-        const sornaQuotes = [
-            "Nel bel mezzo del cammin di nostra vita mi ritrovai in un'aula di robotica",
-            "Sia resa lode a Poldin",
-            "La robotica è come la palestra: DEVI SPINGERE",
-            "La vita è come uno spinosauro: è stupenda",
-            "La vita è come una gomma: gira e rigira e a volte torna indietro"
-        ];
+        const allQuotes = {
+            "sorna": [
+                "Nel bel mezzo del cammin di nostra vita mi ritrovai in un'aula di robotica",
+                "Sia resa lode a Poldin",
+                "La robotica è come la palestra: DEVI SPINGERE",
+                "La vita è come uno spinosauro: è stupenda",
+                "La vita è come una gomma: gira e rigira e a volte torna indietro"
+            ],
+            "rob": [
+                "Inter merda",
+                "Il mio biennio da coach sono stati i 5 anni più belli di robotica"
+            ],
+            "niki": [
+                "Robotica best therapy per disagiati ed esauriti"
+            ],
+            "nico": [
+                "Homo Duplex",
+                "Non è un hovercraft",
+                "NON È UN CHIP",
+                "Chill",
+                "Ve l'avevo detto",
+                "Fatti non foste per viver come bruti, ma per seguir virtute e canoscenza",
+                "Il miglior contraccettivo? La robotica",
+                "Se va male andiamo a bere",
+                "Se va bene andiamo a bere",
+                "Talk is cheap. Show me the code",
+                "Software is like sex: it's better when it's free",
+                "Remember! Reality is an illusion, the universe is a hologram, buy gold, BYE!",
+                "Open source has won",
+                "Odio Windows",
+                "Uso Arch btw",
+                "A computer is like air conditioning: it becomes useless when you open Windows",
+                "L'ho già detto che odio Windows?",
+                "Boh, su Linux non mi succede",
+                "Hai pulito le ruote?",
+                "Hai pulito il tavolo?",
+                "Le batterie sono cariche?",
+                "Hai caricato il codice?",
+                "Hai fatto il commit?",
+                "Studiate, che poi finite come me",
+                "Megi! Megi! Megi!",
+                "Papappapapaaaa",
+                "Trust me, I'm an engineer",
+                "Ma sì, questa la fai per inerzia",
+            ],
+            "ila": [
+                "la vita è come la robotica, la costruisci mattoncino per mattoncino", 
+                "posso vedere le tue caviglie?",
+                "ansia costante, ginocchio dolorante",
+                "mi comprate un pinguino?",
+                "il robot va solo con i tirataie",
+                "ma guardate che bellooooo, fotoooo",
+                "robotica big family",
+                "noi lavoriamo nella meccanica di precisione",
+            ],
+            "teto": [
+                "Descrizione dell'esperienza.",
+                "Inserisci qui un'altra frase per Teto!"
+            ],
+            "talmon": [
+                "5 anni di robotica<br>0 premi stella nascenti<br>almeno ho preso il mio vodka sureeeee🍹🍹🍹",
+                "Spero di aver lascia qualcosa e non aver dimenticato niente (come Malta)",
+                "scemo chi legge"
+            ],
+            "ciro": [
+                "Descrizione dell'esperienza.",
+                "Inserisci qui un'altra frase per Ciro!"
+            ],
+            "sensi": [
+                "Descrizione dell'esperienza.",
+                "Inserisci qui un'altra frase per Sensi!"
+            ],
+            "marti": [
+                "A mali estremi bevi e rimedi"
+            ],
+            "ari": [
+                "Descrizione dell'esperienza.",
+                "Inserisci qui un'altra frase per Ari!"
+            ],
+            "moschini": [
+                "Descrizione dell'esperienza.",
+                "Inserisci qui un'altra frase per Moschini!"
+            ],
+            "alo": [
+                "Descrizione dell'esperienza.",
+                "Inserisci qui un'altra frase per Alo!"
+            ],
+            "franci": [
+                "Descrizione dell'esperienza.",
+                "Inserisci qui un'altra frase per Franci!"
+            ],
+            "desi": [
+                "Descrizione dell'esperienza.",
+                "Inserisci qui un'altra frase per Desi!"
+            ],
+            "ilaria": [
+                "Descrizione dell'esperienza.",
+                "Inserisci qui un'altra frase per Ilaria!"
+            ]
+        };
 
-        const quoteElement = document.getElementById('sorna-quote');
-        if (quoteElement) {
-            const randomIndex = Math.floor(Math.random() * sornaQuotes.length);
-            quoteElement.innerText = `"${sornaQuotes[randomIndex]}"`;
+        for (const memberId in allQuotes) {
+            const quoteElement = document.getElementById(memberId + '-quote');
+            
+            if (quoteElement) {
+                const quotesArray = allQuotes[memberId];
+                const randomIndex = Math.floor(Math.random() * quotesArray.length);
+                quoteElement.innerHTML = `"${quotesArray[randomIndex]}"`;
+            }
         }
     </script>
 
