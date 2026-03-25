@@ -65,7 +65,6 @@
             box-shadow: 0 4px 20px var(--yellow-glow);
         }
 
-        /* Pulsante Home Tutto Giallo */
         .back-btn {
             padding: 10px 20px;
             background-color: var(--primary-yellow);
@@ -197,11 +196,11 @@
             flex: 0.8;
         }
 
+        /* MODIFICATO: Rimosso il bordo e l'ombra eccessiva */
         .img-styled {
             width: 100%;
             height: auto;
-            border: 3px solid var(--primary-yellow);
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.1);
+            border: none; 
             transition: var(--transition);
             cursor: pointer;
             display: block;
@@ -209,12 +208,7 @@
 
         .img-styled:hover {
             transform: scale(1.03);
-            box-shadow: 0 0 30px var(--yellow-glow);
-        }
-
-        .img-white-bg {
-            background-color: white;
-            padding: 15px;
+            filter: brightness(1.1);
         }
 
         /* --- FOOTER --- */
@@ -231,25 +225,16 @@
 
         /* --- RESPONSIVE --- */
         @media (max-width: 900px) {
-
-            .feature-row,
-            .feature-row.reverse {
+            .feature-row, .feature-row.reverse {
                 flex-direction: column;
                 gap: 30px;
             }
-
             .feature-row.reverse .text-content {
                 border-right: none;
                 border-left: 6px solid var(--primary-yellow);
             }
-
-            .hero h1 {
-                font-size: 3.5rem;
-            }
-
-            section {
-                padding: 40px 5%;
-            }
+            .hero h1 { font-size: 3.5rem; }
+            section { padding: 40px 5%; }
         }
     </style>
 </head>
@@ -267,8 +252,7 @@
     </header>
 
     <section class="hero">
-        <div
-            style="background: var(--primary-yellow); color: black; padding: 5px 20px; font-weight: 900; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 2px;">
+        <div style="background: var(--primary-yellow); color: black; padding: 5px 20px; font-weight: 900; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 2px;">
             Unearthed 25/26
         </div>
         <h1>ARCHEOMESH</h1>
@@ -281,41 +265,73 @@
 
             <div class="feature-row">
                 <div class="text-content">
-                    <h3>Il Progetto Scientifico</h3>
-                    <p>Per la nuova stagione Unearthed 2025/2026, il team si è concentrato sulla sicurezza degli
-                        archeologi nel sottosuolo.
-                        È nato così <strong>Archeomesh</strong>, un sistema di monitoraggio avanzato per ambienti ostili
-                        come grotte e piramidi.</p>
+                    <h3>Il Problema: Sicurezza Sotterranea</h3>
+                    <p>In contesti come scavi sotterranei, piramidi e grotte la soglia di rischio aumenta notevolmente a causa di terreni scivolosi, gas nocivi e crolli. Il pericolo maggiore, come ci ha confermato la speleologa Tatiana Guazzaroni, è l'<strong>assenza di comunicazione</strong> tra i ricercatori in caso di emergenza (es. allagamento del Bus del Diaol).</p>
                 </div>
                 <div class="image-content">
-                    <img src="Archeo_main.png" alt="Schematic Archeomesh" class="img-styled img-white-bg">
+                    <img src="gome_neve_titolo.jpg" alt="Immagine problema sicurezza sottosuolo" class="img-styled">
                 </div>
             </div>
 
             <div class="feature-row reverse">
                 <div class="text-content">
-                    <h3>Progettazione Custom</h3>
-                    <p>Utilizzando <strong>KiCad</strong>, abbiamo disegnato i tracciati del nostro PCB per integrare
-                        sensori di gas, frequenza cardiaca e moduli radio <strong>LoRa</strong>, garantendo
-                        comunicazioni anche dove il
-                        segnale GPS e Wi-Fi è assente.</p>
+                    <h3>La Soluzione: Archeomesh</h3>
+                    <p>La nostra risposta è <strong>Archeomesh</strong>, un dispositivo portatile che monitora la salute dell'archeologo tramite sensori di battito cardiaco, pressione e rilevatori di gas nocivi. I dispositivi sono connessi tra loro tramite una <strong>rete mesh locale</strong> che sfrutta la tecnologia radio <strong>LoRa</strong> (Long Range), capace di coprire grandi distanze senza bisogno di Wi-Fi.</p>
                 </div>
                 <div class="image-content">
-                    <img src="archeo.png" alt="Tracciati PCB Kicad" class="img-styled">
+                    <img src="render_archeomesh.png" alt="Rete Mesh LoRa" class="img-styled">
+                </div>
+            </div>
+
+            <div class="feature-row">
+                <div class="text-content">
+                    <h3>Come Funziona Archeomesh: Dettagli Tecnici</h3>
+                    <p>Ogni dispositivo Archeomesh è dotato di sensori per monitorare i parametri vitali dell'archeologo e l'ambiente circostante. In caso di pericolo (es. gas tossici, battito cardiaco anomalo), il dispositivo invia un allarme attraverso la rete LoRa. Gli altri dispositivi nella rete ripetono il segnale, garantendo che l'allarme raggiunga il centro di controllo in superficie.</p>
+                </div>
+                <div class="image-content">
+                    <img src="archeo_main.png" alt="Dettagli sensori Archeomesh" class="img-styled" style="background-color: white; padding: 15px;">
+                </div>
+            </div>
+
+            <div class="feature-row reverse">
+                <div class="text-content">
+                    <h3>L'Interfaccia Utente e la Facilità d'Uso</h3>
+                    <p>Il dispositivo integra un display a inchiostro liquido (e-paper) per la massima efficienza energetica, mostrando dati essenziali in modo chiaro e leggibile anche in condizioni di scarsa illuminazione.</p>
+                </div>
+                <div class="image-content">
+                    <img src="display_2.png" alt="Display e-paper Archeomesh" class="img-styled">
                 </div>
             </div>
 
             <div class="feature-row" style="flex-direction: column; align-items: flex-start;">
                 <div class="text-content" style="width: 100%; margin-bottom: 30px;">
-                    <h3>Precisione Hardware</h3>
-                    <p>Dalla prototipazione su breadboard alla saldatura a stagno definitiva, ogni componente è stato
-                        posizionato per ottimizzare lo spazio, riducendo l'ingombro del 50% rispetto ai moduli standard.
-                    </p>
+                    <h3>Progettazione e Hardware V2: L'evoluzione del PCB</h3>
+                    <p>Siamo passati da prototipi su schede millefori a disegnare il nostro <strong>PCB personalizzato con KiCad</strong>. In soli 25x70mm abbiamo integrato sensori, gestione batteria e un display a inchiostro liquido. Questo ci ha permesso di <strong>ridurre il volume del 70%</strong>.</p>
                 </div>
-                <div
-                    style="width: 100%; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+                <div style="width: 100%; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
                     <img src="pcb_scan_holes_2.png" alt="PCB Fronte" class="img-styled">
                     <img src="pcb_scan_holes_1.png" alt="PCB Retro" class="img-styled">
+                </div>
+            </div>
+
+
+            <div class="feature-row">
+                <div class="text-content">
+                    <h3>Impatto</h3>
+                    <p>Archeomesh non è solo una questione di sicurezza, ma anche di sostenibilità a lungo termine. La scelta di componenti a basso consumo energetico massimizza l'autonomia della batteria, riducendo la necessità di ricariche frequenti.</p>
+                </div>
+                <div class="image-content">
+                    <img src="archeo.png" alt="Impatto e Sostenibilità" class="img-styled">
+                </div>
+            </div>
+
+            <div class="feature-row reverse">
+                <div class="text-content">
+                    <h3>Collaborazioni e Lavoro di Squadra</h3>
+                    <p>Il progetto è stato validato grazie all'aiuto di esperti del Politecnico di Milano che ci hanno fornito feedback lungo tutto il percorso. Il nostro punto forte è l'unione di <strong>tre indirizzi diversi</strong> (linguistico, scientifico e artistico).</p>
+                </div>
+                <div class="image-content">
+                    <img src="archeo_pcb_render.png" alt="Team e Collaborazioni" class="img-styled"> 
                 </div>
             </div>
         </section>
@@ -352,11 +368,11 @@
 
         // --- CITAZIONI CASUALI ---
         const quotes = [
-            "Innovazione sotto la superficie.",
-            "Connettiamo l'impossibile con la rete Mesh.",
-            "Sicurezza e tecnologia nel cuore della terra.",
-            "Archeomesh: il futuro dell'esplorazione.",
-            "Dallo schema KiCad al campo operativo."
+            "Ottimo lavoro, il layout mi sembra molto compatto, molto professionale complimenti...",
+            "The library does fit your use case",
+            "È un progetto da tesi in Ingegneria Elettronica",
+            "Se avessi un azienda ci penserei",
+            "Complimenti ragazzi è un progetto molto interessante "
         ];
         const quoteDisplay = document.getElementById('quote-display');
         if (quoteDisplay) {
