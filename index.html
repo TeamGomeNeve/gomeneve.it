@@ -2,18 +2,15 @@
 <html lang="it">
 
 <head>
-    <script>(function (w, d, s, l, i) {
-            w[l] = w[l] || []; w[l].push({
-                'gtm.start':
-                    new Date().getTime(), event: 'gtm.js'
-            }); var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-KXPKT856');</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gome Neve - Robotics Team</title>
+
+    <link rel="icon" type="image/png" href="images\logo_sito.png">
+
     <style>
+        /* --- Il tuo CSS rimane invariato --- */
+
         /* --- VARIABILI E RESET --- */
         :root {
             --primary-yellow: #FFD700;
@@ -186,6 +183,34 @@
             font-weight: 300;
             text-transform: uppercase;
             letter-spacing: 3px;
+        }
+
+     /* --- STILE VIDEO NELLA SEZIONE ABOUT --- */
+        .about-videos {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+            justify-content: flex-start;
+        }
+
+        .video-box {
+            width: 140px; /* Larghezza contenuta per stare sotto il testo */
+            border: 2px solid var(--text-black);
+            border-radius: 8px;
+            overflow: hidden;
+            background: #000;
+            box-shadow: 5px 5px 0px rgba(0,0,0,0.1);
+        }
+
+        .video-box video {
+            width: 100%;
+            display: block;
+        }
+
+        @media screen and (max-width: 480px) {
+            .about-videos {
+                justify-content: center;
+            }
         }
 
         /* --- BOTTONI --- */
@@ -442,7 +467,6 @@
                         <a href="mut/stagione_24_25.html">2024-25 (Submerged)</a>
                         <a href="steamposio/stagione_23_24.html">2023-24 (Masterpiece)</a>
                         <a href="cesla/stagione_22_23.html">2022-23 (Super Powered)</a>
-                        <a href="archivio/archivio.html">Archivio Storico</a>
                     </div>
                 </li>
                 <li><a href="robot/progetto_tecnico.html">Progetto tecnico</a></li>
@@ -467,12 +491,26 @@
                         LEGO LEAGUE</strong> con entusiasmo e creatività.</p>
                 <br>
                 <a href="#contact" class="btn btn-inverse">Unisciti a noi</a>
+
+                <div class="about-videos">
+                    <div class="video-box">
+                        <video controls muted loop>
+                            <source src="C:/Users/robotica/Downloads/worchestervideo_gomeneve.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="video-box">
+                        <video controls muted loop>
+                            <source src="C:/Users/robotica/Downloads/bostonvideo_gomeneve.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
             </div>
             <div class="about-img">
                 <img src="images/FOTO GRUPPO 1.0.jpg" alt="Foto Squadra Gome Neve">
             </div>
         </div>
     </section>
+
 
     <section id="progetto" class="special-box">
         <h2 class="section-title">Progetto di quest'anno</h2>
