@@ -185,31 +185,53 @@
             letter-spacing: 3px;
         }
 
-     /* --- STILE VIDEO NELLA SEZIONE ABOUT --- */
-        .about-videos {
+        /* --- ABOUT MODIFICATO PER VIDEO A TUTTA LARGHEZZA --- */
+        #about {
+            background-color: var(--primary-yellow);
+            color: var(--text-black);
+            clip-path: polygon(0 0, 100% 5%, 100% 100%, 0 95%);
+            padding-bottom: 100px;
+            /* Spazio extra per i video */
+        }
+
+        .about-videos-full {
+            grid-column: 1 / -1;
+            /* Occupa entrambe le colonne della griglia */
             display: flex;
-            gap: 15px;
-            margin-top: 25px;
-            justify-content: flex-start;
+            gap: 30px;
+            margin-top: 50px;
+            justify-content: center;
         }
 
-        .video-box {
-            width: 140px; /* Larghezza contenuta per stare sotto il testo */
-            border: 2px solid var(--text-black);
-            border-radius: 8px;
-            overflow: hidden;
+        .video-container-vertical {
+            flex: 1;
+            max-width: 450px;
+            /* Limite per non farli diventare giganti su schermi enormi */
+            aspect-ratio: 9/16;
+            /* Forza la forma verticale */
+            border: 4px solid var(--text-black);
             background: #000;
-            box-shadow: 5px 5px 0px rgba(0,0,0,0.1);
+            box-shadow: 15px 15px 0px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
         }
 
-        .video-box video {
+        .video-container-vertical video {
             width: 100%;
-            display: block;
+            height: 100%;
+            object-fit: cover;
+            /* Riempie il contenitore senza bordi neri */
         }
 
-        @media screen and (max-width: 480px) {
-            .about-videos {
-                justify-content: center;
+        @media screen and (max-width: 768px) {
+            .about-videos-full {
+                flex-direction: column;
+                /* Uno sopra l'altro sui cellulari */
+                align-items: center;
+            }
+
+            .video-container-vertical {
+                width: 100%;
+                max-width: 300px;
             }
         }
 
@@ -491,26 +513,25 @@
                         LEGO LEAGUE</strong> con entusiasmo e creatività.</p>
                 <br>
                 <a href="#contact" class="btn btn-inverse">Unisciti a noi</a>
-
-                <div class="about-videos">
-                    <div class="video-box">
-                        <video controls muted loop>
-                            <source src="C:/Users/robotica/Downloads/worchestervideo_gomeneve.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="video-box">
-                        <video controls muted loop>
-                            <source src="C:/Users/robotica/Downloads/bostonvideo_gomeneve.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                </div>
             </div>
             <div class="about-img">
                 <img src="images/FOTO GRUPPO 1.0.jpg" alt="Foto Squadra Gome Neve">
             </div>
+
+            <div class="about-videos-full">
+                <div class="video-container-vertical">
+                    <video controls muted loop>
+                        <source src="images/bostonvideo_gomeneve.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="video-container-vertical">
+                    <video controls muted loop>
+                        <source src="images/worchestervideo_gomeneve.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
         </div>
     </section>
-
 
     <section id="progetto" class="special-box">
         <h2 class="section-title">Progetto di quest'anno</h2>

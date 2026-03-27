@@ -215,6 +215,41 @@
             text-transform: uppercase;
         }
 
+        /* --- NUOVO STILE VIDEO PARALLELI --- */
+        .about-videos-full {
+            grid-column: 1 / -1;
+            display: flex;
+            gap: 20px;
+            margin-top: 40px;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .video-container-vertical {
+            flex: 1;
+            max-width: 400px;
+            background: #000;
+            border: 4px solid var(--text-black);
+            box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            line-height: 0;
+            /* Rimuove spazi bianchi sotto il video */
+        }
+
+        .video-container-vertical video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        @media screen and (max-width: 768px) {
+            .about-videos-full {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
         /* --- LIGHTBOX --- */
         .lightbox-overlay {
             display: none;
@@ -295,62 +330,65 @@
         <section id="analisi">
             <h2 class="section-title">Specifiche Tecniche</h2>
 
-            <div class="image-box">
-                <video width="640" height="360" controls poster="anteprima.jpg">
-  <source src="video/mio-video.mp4" type="video/mp4">
-  Il tuo browser non supporta il tag video.
-</video>
-            </div>
-
+            <video autoplay muted loop playsinline style="width: 100%;">
+                <source src="images\Compilation-Robot.mp4" type="images\Compilation-Robot.mp4">
+            </video>
             <div class="text-container">
                 <h3>Design & Meccanica</h3>
                 <p>
-                    Il nostro robot è progettato per massimizzare l'efficienza negli spostamenti e la precisione nei
-                    task di gara.
-                    Utilizziamo componenti personalizzati in stampa 3D e un telaio rinforzato per garantire stabilità
-                    durante le missioni più complesse.
+                    Un robot completamente costruito da zero dalla nostra squadra di costruttori, partendo da pezzi
+                    ufficiali lego, motori, ruote controller brick, sensori, fatica e sudore, ma soprattutto tanta tanta
+                    passione.
+                    Questo robot è uno dei quattro criteri che ci permettono di vincere le gare.
+                    Utilizziamo quattro motori, due per far muovere le ruote, che cambiano velocità a seconda di dove e
+                    come bisogna sterzare, e due motori che fanno girare i vari ingranaggi dediti a svolgere le
+                    missioni.
+                    Vari sensori, come quello di colore, di pressione o il giroscopio, ci permettono di avere un robot
+                    preciso e efficente.
+                    Un "computer", il controller brick Spike Prime, che coordina il tutto tramite i comandi che il
+                    nostro team di programmatori pre-imposta durante la programmazione.
+                    Strutture rimovibili e intercambiabili fra loro vengono attaccate al robot, permettendogli di
+                    svolgere più missioni contemporaneamente e rendendo il tutto più efficiente.
+
+
                 </p>
             </div>
         </section>
+        <div class="text-container">
+            <h3>Software e Logica di Controllo</h3>
+            <p>
+                Utilizziamo algoritmi di navigazione avanzati basati su sensori di colore e giroscopi per correggere
+                la traiettoria in tempo reale.
+                Il codice è strutturato a blocchi o in Python per permettere una manutenzione rapida durante le
+                competizioni.
+            </p>
+        </div>
 
-        <section id="storia">
-            <h2 class="section-title">Evoluzione del Team</h2>
-
-            <div class="text-container">
-                <h3>Software e Logica di Controllo</h3>
-                <p>
-                    Utilizziamo algoritmi di navigazione avanzati basati su sensori di colore e giroscopi per correggere
-                    la traiettoria in tempo reale.
-                    Il codice è strutturato a blocchi o in Python per permettere una manutenzione rapida durante le
-                    competizioni.
-                </p>
+        <div class="robot-grid">
+            <div class="robot-card">
+                <h3>Season 23/24</h3>
+                <div class="robot-img-wrapper">
+                    <img src="robot_masterpiece1.png" alt="Robot Masterpiece">
+                </div>
+                <p style="font-size: 0.8rem; margin-top: 10px;">MASTERPIECE</p>
             </div>
 
-            <div class="robot-grid">
-                <div class="robot-card">
-                    <h3>Season 23/24</h3>
-                    <div class="robot-img-wrapper">
-                        <img src="robot_masterpiece1.png" alt="Robot Masterpiece">
-                    </div>
-                    <p style="font-size: 0.8rem; margin-top: 10px;">MASTERPIECE</p>
+            <div class="robot-card">
+                <h3>Season 24/25</h3>
+                <div class="robot-img-wrapper">
+                    <img src="robot_submerged.JPG" alt="Robot Submerged">
                 </div>
-
-                <div class="robot-card">
-                    <h3>Season 24/25</h3>
-                    <div class="robot-img-wrapper">
-                        <img src="robot_submerged.JPG" alt="Robot Submerged">
-                    </div>
-                    <p style="font-size: 0.8rem; margin-top: 10px;">SUBMERGED</p>
-                </div>
-
-                <div class="robot-card">
-                    <h3>Season 25/26</h3>
-                    <div class="robot-img-wrapper">
-                        <img src="robot_unearthed.png" alt="Robot Unearthed">
-                    </div>
-                    <p style="font-size: 0.8rem; margin-top: 10px;">UNEARTHED</p>
-                </div>
+                <p style="font-size: 0.8rem; margin-top: 10px;">SUBMERGED</p>
             </div>
+
+            <div class="robot-card">
+                <h3>Season 25/26</h3>
+                <div class="robot-img-wrapper">
+                    <img src="robot_unearthed.png" alt="Robot Unearthed">
+                </div>
+                <p style="font-size: 0.8rem; margin-top: 10px;">UNEARTHED</p>
+            </div>
+        </div>
         </section>
     </main>
 
