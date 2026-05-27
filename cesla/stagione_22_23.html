@@ -20,21 +20,17 @@
             scroll-behavior: smooth;
             overflow-y: scroll;
         }
-
         ::-webkit-scrollbar {
             width: 14px;
         }
-
         ::-webkit-scrollbar-track {
             background: #101010;
         }
-
         ::-webkit-scrollbar-thumb {
             background: var(--primary-yellow);
             border-radius: 10px;
             border: 3px solid #101010;
         }
-
         ::-webkit-scrollbar-thumb:hover {
             background: #ffffff;
         }
@@ -45,7 +41,6 @@
             box-sizing: border-box;
             font-family: 'Segoe UI', 'Roboto', Helvetica, Arial, sans-serif;
         }
-
         body {
             background-color: var(--dark-bg);
             color: var(--text-white);
@@ -67,7 +62,6 @@
             align-items: center;
             box-shadow: 0 4px 20px var(--yellow-glow);
         }
-
         .back-btn {
             background-color: var(--primary-yellow);
             color: var(--text-black);
@@ -78,12 +72,10 @@
             text-decoration: none;
             transition: 0.3s;
         }
-
         .back-btn:hover {
             background-color: white;
             transform: scale(1.05);
         }
-
         .logo {
             font-size: 1.8rem;
             font-weight: 900;
@@ -106,7 +98,6 @@
             background-position: center;
             border-bottom: 2px solid var(--primary-yellow);
         }
-
         .hero h1 {
             font-size: clamp(3rem, 10vw, 6rem);
             color: var(--primary-yellow);
@@ -115,12 +106,11 @@
             text-shadow: 3px 3px 0px #000;
             margin-bottom: 10px;
         }
-
-        .hero .subtitle { 
-            font-size: 1.5rem; 
-            color: #fff; 
-            font-weight: 300; 
-            letter-spacing: 4px;
+        .hero .subtitle {
+             font-size: 1.5rem;
+             color: #fff;
+             font-weight: 300;
+             letter-spacing: 4px;
             text-transform: uppercase;
         }
 
@@ -130,7 +120,6 @@
             max-width: 1200px;
             margin: 0 auto;
         }
-
         .section-title {
             text-align: center;
             font-size: 2.8rem;
@@ -139,31 +128,63 @@
             font-weight: 800;
             color: var(--primary-yellow);
         }
-
+        
+        /* CONTAINER OTTIMIZZATO PER LA LOCANDINA VERTICALE */
         .photo-container {
             width: 100%;
-            aspect-ratio: 16/9;
-            background-color: var(--card-bg);
+            height: auto;
+            max-height: 700px;
+            background-color: #ffffff;
             border: 3px solid var(--primary-yellow);
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 60px;
             box-shadow: 0 0 30px rgba(255, 215, 0, 0.1);
+            overflow: hidden;
+            padding: 15px;
+        }
+        
+        /* IMPOSTAZIONE DELL'IMMAGINE VERTICALE PER INTERO */
+        .photo-container img {
+            max-width: 100%;
+            max-height: 660px;
+            object-fit: contain;
+            display: block;
         }
 
         .info-box {
             background-color: var(--card-bg);
             padding: 50px;
             border-left: 8px solid var(--primary-yellow);
-            margin-bottom: 80px;
+            margin-bottom: 40px;
         }
-
         .info-box h3 {
             color: var(--primary-yellow);
             text-transform: uppercase;
             font-size: 2rem;
             margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+        .info-box p {
+            margin-bottom: 15px;
+        }
+        .info-box ul {
+            list-style-type: none;
+            padding-left: 10px;
+        }
+        .info-box ul li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 10px;
+        }
+        .info-box ul li::before {
+            content: "■";
+            position: absolute;
+            left: 0;
+            color: var(--primary-yellow);
+            font-size: 0.8rem;
+            top: 2px;
         }
 
         /* --- FOOTER --- */
@@ -175,9 +196,6 @@
             font-weight: bold;
             text-transform: uppercase;
         }
-
-        .extra-scroll { height: 200px; }
-
     </style>
 </head>
 <body>
@@ -185,32 +203,56 @@
     <header>
         <a href="../index.html" class="back-btn">← Home</a>
         <div class="logo">CESLA</div>
-        <div style="width: 80px;"></div> 
+        <div style="width: 80px;"></div>
     </header>
 
     <section class="hero">
         <div style="background: var(--primary-yellow); color: black; padding: 5px 20px; font-weight: 900; margin-bottom: 20px;">STAGIONE 22/23</div>
         <h1>CESLA</h1>
-        <p class="subtitle">Energia e Tecnologia</p>
+        <p class="subtitle">Comunità Energetica Scuola Ladina e Asilo</p>
     </section>
 
     <main>
         <section id="progetto">
-            <h2 class="section-title">Il Progetto Storico</h2>
-            
+            <h2 class="section-title">Il Nostro Progetto Storico</h2>
+
             <div class="photo-container">
-                <span style="color: #444; font-weight: bold; text-transform: uppercase;">[ Foto Prototipo Cesla 22/23 ]</span>
+                <img src="ecoempower.jpg" alt="Presentazione Ufficiale CESLA - Progetto Ecoempower">
             </div>
 
             <div class="info-box">
-                <h3>Sviluppo Tecnologico</h3>
+                <h3>La Nostra Intuizione: Dal Robot alla Comunità Reale</h3>
                 <p>
-                    DA CHIEDERE A QUELLI DI CESLA
+                    Come squadra di robotica <strong>Gome Neve</strong> della Scuola Ladina di Fassa, tutto è iniziato durante la stagione 2022/2023 accettando la sfida scientifica della <strong>First Lego League</strong>, incentrata sul futuro dell'energia. Non volevamo limitarci a costruire un modellino teorico: volevamo lasciare un segno tangibile nel nostro territorio.
                 </p>
-                <br>
+                <p>
+                    Abbiamo studiato e mappato da cima a fondo i consumi energetici reali dei nostri plessi scolastici e degli edifici vicini. Da quella che era nata come una competizione studentesca, abbiamo elaborato una proposta ingegneristica d'avanguardia per l'intera comunità alpina, gettando le basi per la fondazione di <strong>CESLA</strong>, la prima Comunità Energetica Rinnovabile (CER) della Val di Fassa.
+                </p>
+            </div>
+
+            <div class="info-box">
+                <h3>Come Abbiamo Sviluppato l'Infrastruttura Tecnica</h3>
+                <p>
+                    Abbiamo progettato un'architettura di rete basata sulla cooperazione energetica e su flussi di generazione pulita distribuiti, pensati per massimizzare l'autoconsumo locale istantaneo:
+                </p>
+                <ul>
+                    <li><strong>Il Nostro Impianto:</strong> Sfruttiamo l'energia prodotta da un impianto fotovoltaico da <strong>20 kWp</strong> posizionato sui tetti del nostro polo scolastico.</li>
+                    <li><strong>La Rete Condivisa:</strong> L'energia pulita non autoconsumata sul momento viene immessa in rete e condivisa istantaneamente con le altre utenze della comunità locale.</li>
+                    <li><strong>I Nostri Partner:</strong> Abbiamo unito le forze costituendo un'Associazione pluralista che include i Licei della Scuola Ladina di Fassa, la Scuola dell'Infanzia (Asilo) di Sèn Jan e il Consorzio Elettrico di Pozza (CEP), che ci supporta come partner tecnico e gestore della rete. Il progetto è inoltre supportato dall'iniziativa europea <strong>Life Ecoempower</strong> per la transizione energetica.</li>
+                </ul>
+            </div>
+
+            <div class="info-box">
+                <h3>Il Nostro Obiettivo: Un Futuro Sostenibile e Circolare</h3>
+                <p>
+                    L'aspetto di cui andiamo più fieri è che il CESLA non insegue profitti privati, ma incarna un modello puro di economia circolare, etica e ad alto impatto sociale:
+                </p>
+                <ul>
+                    <li><strong>Il Nostro Laboratorio a Cielo Aperto:</strong> Monitoriamo costantemente i flussi energetici e i dati di produzione per studiare da vicino la transizione ecologica direttamente sul campo.</li>
+                    <li><strong>Un Guadagno Condiviso:</strong> Tutti i benefici economici derivanti dagli incentivi statali sull'energia condivisa non vengono divisi tra i singoli, ma vengono <strong>reinvestiti per acquistare nuovo materiale didattico e tecnologie innovative</strong> per la nostra scuola e per i futuri studenti.</li>
+                </ul>
             </div>
         </section>
-
     </main>
 
     <footer>
